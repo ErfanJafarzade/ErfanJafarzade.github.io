@@ -16,7 +16,7 @@
       --border:      #E4E2DA;
       --text:        #1A1916;
       --text-muted:  #6B685E;
-      --accent:      #3D5A80;        /* slate blue — academic, calm */
+      --accent:      #3D5A80;   
       --accent-soft: #E8EEF4;
       --radius-sm:   8px;
       --radius-md:   16px;
@@ -53,22 +53,11 @@
 
     a:hover { text-decoration: underline; }
 
-
-    /* ============================================================
-       LAYOUT WRAPPER
-       Everything sits in a centred column.
-    ============================================================ */
-
     .page {
-      max-width: 720px;
+      max-width: 1140px;
       margin: 0 auto;
       padding: 0 1.5rem;
     }
-
-
-    /* ============================================================
-       NAV
-    ============================================================ */
 
     nav {
       position: sticky;
@@ -129,11 +118,6 @@
     }
 
     .theme-btn:hover { color: var(--text); }
-
-
-    /* ============================================================
-       HERO
-    ============================================================ */
 
     .hero {
       padding: 5rem 0 3.5rem;
@@ -205,11 +189,6 @@
     }
 
 
-    /* ============================================================
-       SECTIONS
-       Each section shares the same vertical rhythm.
-    ============================================================ */
-
     section {
       padding: 3.5rem 0;
       border-bottom: 1px solid var(--border);
@@ -232,11 +211,6 @@
       font-weight: 600;
       margin-bottom: 1.5rem;
     }
-
-
-    /* ============================================================
-       STAT CHIPS  (GPA, TOEFL, etc.)
-    ============================================================ */
 
     .stats {
       display: flex;
@@ -271,11 +245,6 @@
       display: block;
       margin-top: 0.3rem;
     }
-
-
-    /* ============================================================
-       RESEARCH CARDS
-    ============================================================ */
 
     .card {
       background: var(--surface);
@@ -319,11 +288,6 @@
       font-weight: 500;
     }
 
-
-    /* ============================================================
-       TIMELINE  (Experience)
-    ============================================================ */
-
     .timeline { display: flex; flex-direction: column; gap: 0; }
 
     .timeline-item {
@@ -362,11 +326,6 @@
       line-height: 1.7;
     }
 
-
-    /* ============================================================
-       LANGUAGES TABLE
-    ============================================================ */
-
     .lang-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
@@ -396,11 +355,6 @@
       letter-spacing: 0.08em;
       font-weight: 500;
     }
-
-
-    /* ============================================================
-       SKILLS LIST
-    ============================================================ */
 
     .skills-grid {
       display: grid;
@@ -435,21 +389,6 @@
       font-size: 0.86rem;
       color: var(--text-muted);
     }
-
-
-    /* ============================================================
-       BLOG PLACEHOLDER
-       Remove this section once you're ready to add posts.
-       To add a post, duplicate the .blog-item div below and
-       fill in the date, category, title, and excerpt fields.
-    ============================================================ */
-
-    /* (Blog section removed — add it back when ready) */
-
-
-    /* ============================================================
-       CONTACT
-    ============================================================ */
 
     .contact-links {
       display: flex;
@@ -487,11 +426,6 @@
       flex-shrink: 0;
     }
 
-
-    /* ============================================================
-       FOOTER
-    ============================================================ */
-
     footer {
       padding: 2rem 0;
       text-align: center;
@@ -499,11 +433,6 @@
       color: var(--text-muted);
       border-top: 1px solid var(--border);
     }
-
-
-    /* ============================================================
-       RESPONSIVE
-    ============================================================ */
 
     @media (max-width: 600px) {
       .timeline-item { grid-template-columns: 1fr; gap: 0.25rem; }
@@ -519,9 +448,6 @@
 </head>
 <body>
 
-  <!-- ============================================================
-       NAV
-  ============================================================ -->
   <nav>
     <div class="page">
       <span class="nav-name">Erfan Jafarzadeh</span>
@@ -542,25 +468,22 @@
 
   <div class="page">
 
-    <!-- ============================================================
-         HERO
-    ============================================================ -->
     <div class="hero" id="about">
-      <div class="hero-label">Linguist · Researcher · Builder</div>
+      <div class="hero-label">Linguist · Researcher · Developer</div>
 
       <h1>Erfan Jafarzadeh</h1>
 
       <p class="hero-bio">
         BSc in English Translation Studies (GPA 17.57/20) from Islamic Azad University Karaj Branch.
-        My research sits at the intersection of language evolution, psycholinguistics, and AI —
+        My research sits at the intersection of language evolution, psycholinguistics, and AI;
         specifically how generative AI input may be reshaping the compositional dynamics of child language acquisition.
-        Currently seeking PhD and Master's positions globally.
+        Currently seeking PhD and Master's positions globally, I also design and implement smart AI systems and GUIs.
       </p>
 
       <div class="hero-links">
         <a href="mailto:erfanjafarzdh@gmail.com" class="pill primary">Email me</a>
         <a href="https://github.com/Erfanjafarzade" target="_blank" class="pill">GitHub</a>
-        <a href="https://linkedin.com/in/erfan-jafarzadeh" target="_blank" class="pill">LinkedIn</a>
+        <a href="https://ir.linkedin.com/in/erfan-jafarzadeh-7a2513332" target="_blank" class="pill">LinkedIn</a>
         <a href="https://www.researchgate.net/profile/Erfan-Jafarzadeh" target="_blank" class="pill">ResearchGate</a>
       </div>
 
@@ -575,30 +498,25 @@
         </div>
         <div class="stat-chip">
           <span class="number">4</span>
-          <span class="label">Languages</span>
+          <span class="label">Spoken Languages</span>
         </div>
         <div class="stat-chip">
           <span class="number">2025</span>
           <span class="label">BSc Graduated</span>
         </div>
+         <div class="stat-chip">
+          <span class="number">3</span>
+          <span class="label">Programming Languages</span>
+        </div>
       </div>
     </div>
 
-
-    <!-- ============================================================
-         RESEARCH
-    ============================================================ -->
     <section id="research">
       <div class="section-label">Research</div>
-
-      <!-- Card 1: Core proposal -->
       <div class="card">
         <h3>AI Input & Language Evolution</h3>
         <p>
-          My primary research question asks whether generative AI input into early language environments
-          is suppressing the compositional innovation historically driven by gaps in children's linguistic input.
-          Framed through iterated learning theory (Kirby, Griffiths & Smith, 2014), the methodology involves
-          Bayesian agent simulation across 500–1,000 generations and corpus analysis of child-directed speech from 1990 to present.
+          My primary research question asks how generative AI input will affect the evolution of language, Framed through iterated learning theory, this area is expansive and I'm currently learning more through it with the guidance of Dr. Limor Raviv.
         </p>
         <div class="card-tags">
           <span class="tag">Iterated learning</span>
@@ -614,8 +532,8 @@
         <h3>Translation Studies as Cognitive Research</h3>
         <p>
           My undergraduate training connects directly to masked translation priming, cross-language lexical access,
-          and morphological awareness. Being a native speaker of Persian and Azeri — both structurally
-          distant from English — provides firsthand grounding in interlingual transfer, not just theoretical familiarity.
+          and morphological awareness. Being a native speaker of Persian and Azeri, both structurally
+          distant from English. provides firsthand grounding in interlingual transfer, not just theoretical familiarity.
         </p>
         <div class="card-tags">
           <span class="tag">Translation priming</span>
@@ -629,7 +547,7 @@
       <div class="card">
         <h3>HCI in Linguistic Contexts</h3>
         <p>
-          From my UX research background, I'm interested in how interface design shapes language behaviour —
+          From my UX research background, I'm interested in how interface design shapes language behaviour,
           in language learning apps and in the broader question of how conversational AI alters communicative norms.
         </p>
         <div class="card-tags">
@@ -640,34 +558,13 @@
       </div>
     </section>
 
-
-    <!-- ============================================================
-         PROJECTS
-         Add or remove .card blocks here as your work grows.
-    ============================================================ -->
     <section id="projects">
       <div class="section-label">Projects</div>
-
-      <div class="card">
-        <h3>ILIYA — ASL Recognition System</h3>
-        <p>
-          A real-time American Sign Language recognition system capable of interpreting ~100 ASL signs,
-          built with PyTorch, MediaPipe, OpenCV2, and MLASL. First end-to-end ML model trained from scratch —
-          covering the full pipeline from data preprocessing to model evaluation.
-        </p>
-        <div class="card-tags">
-          <span class="tag">PyTorch</span>
-          <span class="tag">MediaPipe</span>
-          <span class="tag">OpenCV</span>
-          <span class="tag">NumPy</span>
-        </div>
-      </div>
-
       <div class="card">
         <h3>The Last Day</h3>
         <p>
           A short multicultural novel published in Rahavard Journal (2025).
-          Writing across cultures is, for me, an extension of linguistic research by other means —
+          Writing across cultures is, for me, an extension of linguistic research by other means,
           exploring how narrative structure shifts when the author lives between languages.
         </p>
         <div class="card-tags">
@@ -678,23 +575,20 @@
       </div>
 
       <div class="card">
-        <h3>Agent-Based Language Simulation  <span style="font-size:0.78rem; color:var(--text-muted); font-family:'Inter',sans-serif; font-weight:400;">— in progress</span></h3>
+        <h3>Agent-Based RAG database for Language evolution  <span style="font-size:0.78rem; color:var(--text-muted); font-family:'Inter',sans-serif; font-weight:400;">— in progress</span></h3>
         <p>
-          Bayesian agent simulation modelling iterated language learning across generations — testing whether
-          AI-sourced input reduces compositional variability compared to human-gap-driven input over 500–1,000 generations.
+         Using Ollama and Gemma e2b I'm developing a study agent that helps you
+         natively run a connect system of segmented books and articles and study
+         the field with more insight.
         </p>
         <div class="card-tags">
-          <span class="tag">Python</span>
-          <span class="tag">Bayesian modelling</span>
-          <span class="tag">Simulation</span>
+          <span class="tag">RAG</span>
+          <span class="tag">Native AI agents</span>
+          <span class="tag">Agentic AI</span>
         </div>
       </div>
     </section>
 
-
-    <!-- ============================================================
-         EXPERIENCE
-    ============================================================ -->
     <section id="experience">
       <div class="section-label">Experience</div>
 
@@ -706,7 +600,7 @@
             <div class="tl-title">Grade 5 Homeroom & English Teacher</div>
             <div class="tl-org">Nikoo International School · Tehran</div>
             <div class="tl-desc">
-              PYP curriculum delivery alongside general English instruction —
+              PYP curriculum delivery alongside general English instruction,
               combining language pedagogy with first-hand observation of acquisition dynamics
               in a bilingual school context.
             </div>
@@ -730,9 +624,6 @@
     </section>
 
 
-    <!-- ============================================================
-         EDUCATION
-    ============================================================ -->
     <section id="education">
       <div class="section-label">Education</div>
 
@@ -749,10 +640,6 @@
 
     </section>
 
-
-    <!-- ============================================================
-         LANGUAGES
-    ============================================================ -->
     <section id="languages">
       <div class="section-label">Languages</div>
 
@@ -767,7 +654,7 @@
         </div>
         <div class="lang-card">
           <div class="lang-name">English</div>
-          <div class="lang-level">TOEFL 110 / 120</div>
+          <div class="lang-level">TOEFL 5.5 / 6</div>
         </div>
         <div class="lang-card">
           <div class="lang-name">Japanese</div>
@@ -776,11 +663,6 @@
       </div>
     </section>
 
-
-    <!-- ============================================================
-         SKILLS
-         Add or remove items in each list freely.
-    ============================================================ -->
     <section id="skills">
       <div class="section-label">Skills</div>
 
@@ -826,9 +708,6 @@
     </section>
 
 
-    <!-- ============================================================
-         CONTACT
-    ============================================================ -->
     <section id="contact">
       <div class="section-label">Contact</div>
 
@@ -846,12 +725,12 @@
           <span class="contact-type">GitHub</span>
           Erfanjafarzade
         </a>
-        <a href="https://linkedin.com/in/erfan-jafarzadeh" target="_blank" class="contact-row">
+        <a href="https://ir.linkedin.com/in/erfan-jafarzadeh-7a2513332" target="_blank" class="contact-row">
           <span class="contact-type">LinkedIn</span>
           Erfan Jafarzadeh
         </a>
         <a href="https://www.researchgate.net/profile/Erfan-Jafarzadeh" target="_blank" class="contact-row">
-          <span class="contact-type">ResearchGate</span>
+          <span class="contact-type">RG</span>
           Erfan Jafarzadeh
         </a>
       </div>
@@ -859,22 +738,11 @@
 
   </div><!-- /page -->
 
-
-  <!-- ============================================================
-       FOOTER
-  ============================================================ -->
   <footer>
     <div class="page">
       Erfan Jafarzadeh · Karaj, Iran · Available globally
     </div>
   </footer>
-
-
-  <!-- ============================================================
-       DARK MODE SCRIPT
-       Reads the user's system preference on first load,
-       then lets them toggle manually.
-  ============================================================ -->
   <script>
     const root = document.documentElement;
     const icon = document.getElementById('theme-icon');
