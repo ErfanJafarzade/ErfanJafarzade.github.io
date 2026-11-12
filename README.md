@@ -1,6 +1,6 @@
 # erfanjafarzade.github.io
 
-Personal site: a horizontally scrolling, pixel-game styled portfolio. Plain HTML, CSS and JavaScript, no build step.
+Personal site: well I used horizontal design because I thought it fits the overall game design more.
 
 ```
 index.html       page content (one <section> per level)
