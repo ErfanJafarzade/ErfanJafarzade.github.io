@@ -1,1629 +1,216 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<!doctype html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Erfan Jafarzadeh | AI & NLP Portfolio</title>
-  <meta name="description" content="Portfolio of Erfan Jafarzadeh — Computational Linguist, NLP Engineer and AI Developer.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    /* =========================================================
-       1. EASY TO EDIT: COLORS + GLOBAL SETTINGS
-       ========================================================= */
-    :root {
-      --bg: #0b1020;
-      --bg-2: #111a31;
-      --surface: rgba(20, 30, 55, 0.72);
-      --surface-solid: #151f38;
-      --surface-light: rgba(255,255,255,0.06);
-      --text: #eef4ff;
-      --muted: #a8b4ca;
-      --border: rgba(180, 200, 235, 0.13);
-      --accent: #7c9cff;
-      --accent-2: #61e0c2;
-      --accent-3: #b887ff;
-      --danger: #ff8e8e;
-      --shadow: 0 24px 70px rgba(0,0,0,.28);
-      --radius: 22px;
-      --radius-sm: 14px;
-      --max-width: 1180px;
-    }
-
-    [data-theme="light"] {
-      --bg: #f4f7fc;
-      --bg-2: #e9eef8;
-      --surface: rgba(255,255,255,.72);
-      --surface-solid: #ffffff;
-      --surface-light: rgba(28, 48, 85, .05);
-      --text: #15203a;
-      --muted: #61708a;
-      --border: rgba(35, 55, 95, .13);
-      --accent: #4d6fe8;
-      --accent-2: #079b80;
-      --accent-3: #8d5be7;
-      --shadow: 0 24px 70px rgba(38,55,90,.12);
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      background:
-        radial-gradient(circle at 10% 5%, rgba(124,156,255,.16), transparent 28%),
-        radial-gradient(circle at 85% 10%, rgba(97,224,194,.11), transparent 25%),
-        var(--bg);
-      color: var(--text);
-      font-family: Inter, sans-serif;
-      line-height: 1.65;
-      overflow-x: hidden;
-    }
-
-    body.fa-mode { font-family: Vazirmatn, sans-serif; direction: rtl; }
-    body.fa-mode .mono,
-    body.fa-mode .tech-tag { direction: ltr; }
-
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
-
-    .container {
-      width: min(var(--max-width), calc(100% - 40px));
-      margin: 0 auto;
-    }
-
-    /* =========================================================
-       2. NAVIGATION
-       ========================================================= */
-    .nav {
-      position: fixed;
-      inset: 0 0 auto;
-      z-index: 100;
-      backdrop-filter: blur(18px);
-      background: rgba(11,16,32,.72);
-      border-bottom: 1px solid var(--border);
-    }
-
-    [data-theme="light"] .nav { background: rgba(244,247,252,.72); }
-
-    .nav-inner {
-      min-height: 72px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .brand {
-      font-weight: 800;
-      letter-spacing: -.03em;
-      font-size: 1.02rem;
-    }
-
-    .brand span { color: var(--accent-2); }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      color: var(--muted);
-      font-size: .88rem;
-      transition: color .2s ease;
-    }
-
-    .nav-links a:hover { color: var(--text); }
-
-    .nav-actions {
-      display: flex;
-      gap: 8px;
-      align-items: center;
-    }
-
-    .icon-btn {
-      border: 1px solid var(--border);
-      background: var(--surface-light);
-      color: var(--text);
-      min-width: 40px;
-      height: 40px;
-      padding: 0 11px;
-      border-radius: 12px;
-      cursor: pointer;
-      font: inherit;
-      transition: transform .2s, border-color .2s, background .2s;
-    }
-
-    .icon-btn:hover {
-      transform: translateY(-2px);
-      border-color: var(--accent);
-      background: var(--surface);
-    }
-
-    .mobile-menu { display: none; }
-
-    /* =========================================================
-       3. HERO
-       ========================================================= */
-    .hero {
-      min-height: 100vh;
-      display: grid;
-      grid-template-columns: 1.08fr .92fr;
-      align-items: center;
-      gap: 70px;
-      padding: 130px 0 80px;
-      position: relative;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      color: var(--accent-2);
-      font-family: "DM Mono", monospace;
-      font-size: .78rem;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      margin-bottom: 20px;
-    }
-
-    .status-dot {
-      width: 9px;
-      height: 9px;
-      background: var(--accent-2);
-      border-radius: 50%;
-      box-shadow: 0 0 0 0 rgba(97,224,194,.5);
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(97,224,194,.5); }
-      70% { box-shadow: 0 0 0 12px rgba(97,224,194,0); }
-      100% { box-shadow: 0 0 0 0 rgba(97,224,194,0); }
-    }
-
-    .hero h1 {
-      font-size: clamp(3.2rem, 7vw, 6.5rem);
-      line-height: .98;
-      letter-spacing: -.065em;
-      margin-bottom: 20px;
-    }
-
-    .gradient-text {
-      background: linear-gradient(100deg, var(--accent), var(--accent-2), var(--accent-3));
-      background-size: 200% auto;
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      animation: gradientMove 7s linear infinite;
-    }
-
-    @keyframes gradientMove {
-      to { background-position: 200% center; }
-    }
-
-    .hero-role {
-      color: var(--muted);
-      font-size: clamp(1rem, 2vw, 1.28rem);
-      max-width: 690px;
-      margin-bottom: 25px;
-    }
-
-    .hero-copy {
-      max-width: 650px;
-      color: var(--muted);
-      font-size: 1rem;
-      margin-bottom: 30px;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 34px;
-    }
-
-    .btn {
-      min-height: 48px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 9px;
-      padding: 0 19px;
-      border-radius: 14px;
-      border: 1px solid var(--border);
-      font-weight: 600;
-      font-size: .9rem;
-      transition: transform .2s, box-shadow .2s, border-color .2s;
-    }
-
-    .btn:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
-
-    .btn-primary {
-      color: #fff;
-      border-color: transparent;
-      background: linear-gradient(135deg, var(--accent), var(--accent-3));
-    }
-
-    .btn-secondary {
-      background: var(--surface-light);
-      color: var(--text);
-    }
-
-    .hero-mini-stats {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .mini-stat {
-      padding: 11px 14px;
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      background: var(--surface-light);
-      min-width: 118px;
-    }
-
-    .mini-stat strong {
-      display: block;
-      font-size: 1rem;
-      color: var(--text);
-    }
-
-    .mini-stat span {
-      color: var(--muted);
-      font-size: .72rem;
-    }
-
-    /* Hero photo area */
-    .hero-visual {
-      position: relative;
-      display: grid;
-      place-items: center;
-      min-height: 540px;
-    }
-
-    .orb {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(1px);
-      animation: float 7s ease-in-out infinite;
-    }
-
-    .orb.one {
-      width: 260px;
-      height: 260px;
-      background: rgba(124,156,255,.18);
-      top: 0;
-      right: 5%;
-    }
-
-    .orb.two {
-      width: 170px;
-      height: 170px;
-      background: rgba(97,224,194,.13);
-      bottom: 4%;
-      left: 0;
-      animation-delay: -3s;
-    }
-
-    @keyframes float {
-      0%,100% { transform: translateY(0) translateX(0); }
-      50% { transform: translateY(-18px) translateX(10px); }
-    }
-
-    .photo-card {
-      position: relative;
-      z-index: 2;
-      width: min(430px, 88%);
-      aspect-ratio: 4 / 5;
-      padding: 12px;
-      border-radius: 34px;
-      background: linear-gradient(145deg, rgba(124,156,255,.6), rgba(97,224,194,.3), rgba(184,135,255,.45));
-      box-shadow: var(--shadow);
-      animation: photoEntrance .9s ease both;
-    }
-
-    @keyframes photoEntrance {
-      from { opacity: 0; transform: translateY(25px) rotate(2deg); }
-      to { opacity: 1; transform: translateY(0) rotate(0); }
-    }
-
-    .photo-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-      border-radius: 26px;
-    }
-
-    .floating-card {
-      position: absolute;
-      z-index: 3;
-      background: rgba(16,24,45,.78);
-      backdrop-filter: blur(15px);
-      border: 1px solid rgba(255,255,255,.15);
-      border-radius: 16px;
-      padding: 13px 15px;
-      box-shadow: var(--shadow);
-      font-size: .82rem;
-    }
-
-    [data-theme="light"] .floating-card {
-      background: rgba(255,255,255,.8);
-    }
-
-    .floating-card.top {
-      top: 11%;
-      left: -2%;
-      animation: float 5s ease-in-out infinite;
-    }
-
-    .floating-card.bottom {
-      right: -1%;
-      bottom: 11%;
-      animation: float 6s ease-in-out infinite reverse;
-    }
-
-    .floating-card strong {
-      display: block;
-      color: var(--accent-2);
-      font-family: "DM Mono", monospace;
-      margin-bottom: 2px;
-    }
-
-    /* =========================================================
-       4. SECTIONS
-       ========================================================= */
-    section { padding: 105px 0; }
-
-    .section-head {
-      max-width: 760px;
-      margin-bottom: 42px;
-    }
-
-    .section-kicker {
-      color: var(--accent-2);
-      font-family: "DM Mono", monospace;
-      font-size: .76rem;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      margin-bottom: 10px;
-    }
-
-    .section-title {
-      font-size: clamp(2.1rem, 4vw, 4rem);
-      line-height: 1.04;
-      letter-spacing: -.05em;
-      margin-bottom: 16px;
-    }
-
-    .section-description {
-      color: var(--muted);
-      max-width: 700px;
-    }
-
-    .glass-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      box-shadow: 0 15px 45px rgba(0,0,0,.08);
-      backdrop-filter: blur(14px);
-      border-radius: var(--radius);
-    }
-
-    /* =========================================================
-       5. ABOUT + STACK
-       ========================================================= */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-
-    .about-card {
-      padding: 28px;
-    }
-
-    .about-card h3 {
-      font-size: 1.15rem;
-      margin-bottom: 12px;
-    }
-
-    .about-card p { color: var(--muted); }
-
-    .stack-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-      margin-top: 20px;
-    }
-
-    .stack-item {
-      border: 1px solid var(--border);
-      border-radius: 13px;
-      padding: 12px;
-      background: var(--surface-light);
-    }
-
-    .stack-item span {
-      display: block;
-      color: var(--accent-2);
-      font-family: "DM Mono", monospace;
-      font-size: .74rem;
-      margin-bottom: 3px;
-    }
-
-    .stack-item strong { font-size: .9rem; }
-
-    /* =========================================================
-       6. PROJECTS
-       Each project has an image placeholder.
-       Replace .project-image content with:
-       <img src="assets/project-name.jpg" alt="Project screenshot">
-       ========================================================= */
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 22px;
-    }
-
-    .project-card {
-      overflow: hidden;
-      transition: transform .25s ease, border-color .25s ease;
-    }
-
-    .project-card:hover {
-      transform: translateY(-7px);
-      border-color: rgba(124,156,255,.55);
-    }
-
-    .project-image {
-      min-height: 245px;
-      display: grid;
-      place-items: center;
-      position: relative;
-      overflow: hidden;
-      background:
-        linear-gradient(135deg, rgba(124,156,255,.16), rgba(97,224,194,.08)),
-        var(--surface-light);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .project-image::before,
-    .project-image::after {
-      content: "";
-      position: absolute;
-      border-radius: 50%;
-      background: var(--accent);
-      opacity: .12;
-    }
-
-    .project-image::before {
-      width: 220px;
-      height: 220px;
-      top: -100px;
-      right: -60px;
-    }
-
-    .project-image::after {
-      width: 150px;
-      height: 150px;
-      bottom: -80px;
-      left: -50px;
-      background: var(--accent-2);
-    }
-
-    .project-image .placeholder-content {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      color: var(--muted);
-      padding: 20px;
-    }
-
-    .project-image .placeholder-icon {
-      display: block;
-      font-size: 2.2rem;
-      margin-bottom: 8px;
-    }
-
-    .project-image img {
-      width: 100%;
-      height: 100%;
-      min-height: 245px;
-      object-fit: cover;
-    }
-
-    .project-content { padding: 25px; }
-
-    .project-topline {
-      color: var(--accent-2);
-      font-family: "DM Mono", monospace;
-      font-size: .72rem;
-      text-transform: uppercase;
-      letter-spacing: .1em;
-      margin-bottom: 9px;
-    }
-
-    .project-content h3 {
-      font-size: 1.45rem;
-      letter-spacing: -.025em;
-      margin-bottom: 10px;
-    }
-
-    .project-content p {
-      color: var(--muted);
-      font-size: .92rem;
-      margin-bottom: 18px;
-    }
-
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-      margin-bottom: 20px;
-    }
-
-    .tech-tag {
-      border: 1px solid var(--border);
-      background: var(--surface-light);
-      color: var(--muted);
-      padding: 5px 9px;
-      border-radius: 999px;
-      font-size: .72rem;
-      font-family: "DM Mono", monospace;
-    }
-
-    .project-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .text-link {
-      color: var(--accent);
-      font-size: .88rem;
-      font-weight: 600;
-    }
-
-    /* =========================================================
-       7. CASE STUDIES
-       Copy one .case-study block to add a new detailed case.
-       ========================================================= */
-    .case-study-list {
-      display: grid;
-      gap: 28px;
-    }
-
-    .case-study {
-      padding: 30px;
-      scroll-margin-top: 95px;
-    }
-
-    .case-study-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 25px;
-      margin-bottom: 25px;
-    }
-
-    .case-study-header h3 {
-      font-size: clamp(1.5rem, 3vw, 2.2rem);
-      letter-spacing: -.04em;
-    }
-
-    .case-study-number {
-      color: var(--accent-2);
-      font-family: "DM Mono", monospace;
-      font-size: .78rem;
-      white-space: nowrap;
-    }
-
-    .case-study-summary {
-      color: var(--muted);
-      max-width: 850px;
-      margin-bottom: 25px;
-    }
-
-    .case-study-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
-      margin-bottom: 25px;
-    }
-
-    .case-meta {
-      padding: 15px;
-      border-radius: 14px;
-      background: var(--surface-light);
-      border: 1px solid var(--border);
-    }
-
-    .case-meta span {
-      display: block;
-      color: var(--accent-2);
-      font-family: "DM Mono", monospace;
-      font-size: .68rem;
-      text-transform: uppercase;
-      margin-bottom: 4px;
-    }
-
-    .case-meta strong { font-size: .84rem; }
-
-    .case-study-content {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 22px;
-    }
-
-    .case-block {
-      padding: 20px;
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      background: var(--surface-light);
-    }
-
-    .case-block h4 {
-      margin-bottom: 9px;
-      font-size: 1rem;
-    }
-
-    .case-block p,
-    .case-block li {
-      color: var(--muted);
-      font-size: .9rem;
-    }
-
-    .case-block ul {
-      padding-left: 20px;
-      display: grid;
-      gap: 6px;
-    }
-
-    body.fa-mode .case-block ul { padding-left: 0; padding-right: 20px; }
-
-    .case-gallery {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      margin-top: 22px;
-    }
-
-    .gallery-slot {
-      min-height: 150px;
-      display: grid;
-      place-items: center;
-      border: 1px dashed rgba(124,156,255,.45);
-      border-radius: 16px;
-      color: var(--muted);
-      background: var(--surface-light);
-      text-align: center;
-      padding: 12px;
-      font-size: .8rem;
-    }
-
-    .gallery-slot img {
-      width: 100%;
-      height: 100%;
-      min-height: 150px;
-      object-fit: cover;
-      border-radius: 12px;
-    }
-
-    /* =========================================================
-       8. EXPERIENCE + SKILLS
-       ========================================================= */
-    .experience-list { display: grid; gap: 14px; }
-
-    .experience-item {
-      padding: 25px;
-      display: grid;
-      grid-template-columns: 150px 1fr;
-      gap: 25px;
-    }
-
-    .experience-date {
-      color: var(--accent-2);
-      font-family: "DM Mono", monospace;
-      font-size: .8rem;
-    }
-
-    .experience-body h3 { margin-bottom: 3px; }
-    .experience-body .company {
-      color: var(--accent);
-      font-size: .86rem;
-      margin-bottom: 10px;
-    }
-    .experience-body p { color: var(--muted); font-size: .92rem; }
-
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-
-    .skill-card { padding: 24px; }
-    .skill-card h3 { margin-bottom: 14px; }
-
-    .skill-list {
-      list-style: none;
-      display: grid;
-      gap: 8px;
-    }
-
-    .skill-list li {
-      color: var(--muted);
-      font-size: .9rem;
-      padding-bottom: 8px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    /* =========================================================
-       9. CONTACT
-       ========================================================= */
-    .contact-box {
-      padding: 45px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .contact-box::before {
-      content: "";
-      position: absolute;
-      width: 380px;
-      height: 380px;
-      border-radius: 50%;
-      background: rgba(124,156,255,.12);
-      filter: blur(20px);
-      right: -160px;
-      top: -220px;
-    }
-
-    .contact-box > * { position: relative; z-index: 1; }
-
-    .contact-box h2 {
-      font-size: clamp(2rem, 4vw, 3.5rem);
-      letter-spacing: -.05em;
-      margin-bottom: 12px;
-    }
-
-    .contact-box p {
-      color: var(--muted);
-      max-width: 680px;
-      margin-bottom: 25px;
-    }
-
-    /* =========================================================
-       10. FOOTER
-       ========================================================= */
-    footer {
-      padding: 40px 0;
-      color: var(--muted);
-      font-size: .82rem;
-    }
-
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
-      border-top: 1px solid var(--border);
-      padding-top: 25px;
-    }
-
-    /* =========================================================
-       11. SCROLL ANIMATIONS
-       ========================================================= */
-    .reveal {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity .7s ease, transform .7s ease;
-    }
-
-    .reveal.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* =========================================================
-       12. RESPONSIVE
-       ========================================================= */
-    @media (max-width: 900px) {
-      .hero,
-      .about-grid,
-      .project-grid,
-      .case-study-content {
-        grid-template-columns: 1fr;
-      }
-
-      .hero { gap: 35px; }
-      .hero-visual { min-height: 470px; order: -1; }
-      .photo-card { width: min(390px, 85%); }
-      .skills-grid { grid-template-columns: 1fr; }
-      .case-study-grid { grid-template-columns: repeat(2, 1fr); }
-      .nav-links { display: none; }
-      .mobile-menu { display: inline-flex; }
-    }
-
-    @media (max-width: 620px) {
-      .container { width: min(100% - 28px, var(--max-width)); }
-      section { padding: 75px 0; }
-      .hero { padding-top: 110px; }
-      .hero h1 { font-size: 3.25rem; }
-      .hero-mini-stats { display: grid; grid-template-columns: 1fr 1fr; }
-      .mini-stat { min-width: 0; }
-      .floating-card { display: none; }
-      .case-study,
-      .contact-box,
-      .project-content { padding: 20px; }
-      .case-study-header,
-      .footer-inner { flex-direction: column; }
-      .case-study-grid,
-      .case-gallery { grid-template-columns: 1fr; }
-      .experience-item { grid-template-columns: 1fr; gap: 8px; }
-      .nav-actions .mobile-menu { display: inline-flex; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: .01ms !important;
-        scroll-behavior: auto !important;
-      }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Erfan Jafarzadeh | Linguistics Researcher</title>
+<meta name="description" content="Erfan Jafarzadeh: linguistics student at IKIU working on computational linguistics, language evolution and psycholinguistics. Also builds things with Python, C and the web.">
+<meta name="theme-color" content="#070710">
+<meta property="og:title" content="Erfan Jafarzadeh | Linguistics Researcher">
+<meta property="og:description" content="Computational linguistics, language evolution, psycholinguistics. Portfolio.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://erfanjafarzade.github.io/">
+<link rel="canonical" href="https://erfanjafarzade.github.io/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Crect width='8' height='8' fill='%23070710'/%3E%3Cpath fill='%2300f0ff' d='M1 1h6v1H2v2h4v1H2v2h5v1H1z'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Erfan Jafarzadeh","url":"https://erfanjafarzade.github.io/","jobTitle":"Linguistics researcher","knowsLanguage":["fa","az","en","ja"],"sameAs":["https://github.com/erfanjafarzade"]}</script>
+<style>
+:root{--bg:#070710;--panel:#0e0e1c;--c:#00f0ff;--m:#ff2bd6;--g:#b6ff3c;--t:#e8ecff;--mu:#a4a9cc;--px:'Press Start 2P',ui-monospace,monospace;--bd:'VT323',ui-monospace,Menlo,monospace}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;background:var(--bg);color:var(--t);overflow:hidden}
+body{font-family:var(--bd);font-size:clamp(21px,1.5vw,26px);line-height:1.25;-webkit-font-smoothing:none}
+a{color:var(--c)}a:hover{color:var(--m)}
+:focus-visible{outline:3px solid var(--g);outline-offset:3px}
+h1,h2,h3,p{margin:0}
+.px{font-family:var(--px);line-height:1.5}
+.mu{color:var(--mu)}
+
+/* backdrop */
+.grid{position:fixed;inset:0;z-index:0;--p:0;background:
+ linear-gradient(transparent 0 calc(100% - 2px),rgba(0,240,255,.10) 0) 0 0/64px 64px,
+ linear-gradient(90deg,transparent 0 calc(100% - 2px),rgba(0,240,255,.10) 0) calc(var(--p)*-.35px) 0/64px 64px,
+ radial-gradient(60% 50% at 20% 10%,rgba(255,43,214,.16),transparent),radial-gradient(50% 50% at 85% 90%,rgba(0,240,255,.14),transparent)}
+body::after{content:"";position:fixed;inset:0;z-index:50;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(255,255,255,.035) 0 1px,transparent 1px 3px),radial-gradient(120% 100% at 50% 50%,transparent 60%,rgba(0,0,0,.45))}
+
+/* HUD */
+.hud{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 4vw 18px;background:linear-gradient(var(--bg) 60%,transparent)}
+.logo{font-family:var(--px);font-size:16px;color:var(--c);text-decoration:none;text-shadow:3px 3px 0 var(--m)}
+nav{display:flex;gap:4px;flex-wrap:nowrap}
+nav a{font-family:var(--px);font-size:10px;color:var(--mu);text-decoration:none;padding:10px 8px;border:2px solid transparent;white-space:nowrap}
+nav a b{color:var(--m);font-weight:400;margin-right:6px}
+nav a:hover,nav a[aria-current]{color:var(--t);border-color:var(--c)}
+.bar{position:absolute;left:4vw;right:4vw;bottom:8px;height:4px;background:#1c1c33}
+.bar i{display:block;height:100%;width:0;background:var(--g);box-shadow:0 0 12px var(--g)}
+.hint{position:fixed;z-index:20;left:4vw;right:4vw;bottom:14px;display:flex;justify-content:space-between;font-family:var(--px);font-size:10px;color:var(--mu);pointer-events:none}
+
+/* track */
+.track{position:relative;z-index:1;display:flex;height:100%;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x proximity;scroll-behavior:smooth;scrollbar-width:none;outline:none}
+.track::-webkit-scrollbar{display:none}
+.lvl{flex:0 0 100vw;width:100vw;height:100%;scroll-snap-align:start;padding:96px 6vw 56px;display:flex;flex-direction:column;justify-content:center;gap:28px;overflow-y:auto;scrollbar-width:none}
+.lvl>*{max-width:1200px}
+h2.px{font-size:clamp(18px,2.3vw,32px);color:var(--g)}
+h2 span{color:var(--m);margin-right:14px}
+
+/* parts */
+.box{background:var(--panel);border:4px solid var(--c);box-shadow:8px 8px 0 var(--m);padding:22px;transition:transform .12s,box-shadow .12s}
+.box:hover{transform:translate(-3px,-3px);box-shadow:11px 11px 0 var(--m)}
+.box.alt{border-color:var(--m);box-shadow:8px 8px 0 var(--c)}
+.box.alt:hover{box-shadow:11px 11px 0 var(--c)}
+.tag{font-family:var(--px);font-size:10px;color:var(--bg);background:var(--g);padding:6px 8px;display:inline-block}
+.tag.m{background:var(--m)}.tag.c{background:var(--c)}
+.chip{display:inline-block;border:2px solid var(--c);padding:2px 10px;margin:0 8px 8px 0;color:var(--t)}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:34px}
+.box h3{font-family:var(--px);font-size:13px;color:var(--c);margin:12px 0 10px}
+.stat{font-family:var(--px);font-size:clamp(22px,3vw,40px);color:var(--g);text-shadow:3px 3px 0 var(--m)}
+.btn{font-family:var(--px);font-size:13px;text-decoration:none;padding:16px 20px;border:4px solid var(--g);color:var(--g);display:inline-block;background:var(--bg)}
+.btn:hover{background:var(--g);color:var(--bg)}
+.btn.m{border-color:var(--m);color:var(--m)}.btn.m:hover{background:var(--m);color:var(--bg)}
+.blink{animation:bl 1s steps(1) infinite}@keyframes bl{50%{opacity:0}}
+
+/* hero */
+.hero{flex-direction:row;align-items:center;gap:6vw;flex-wrap:nowrap}
+.hero>div:first-child{display:flex;flex-direction:column;gap:22px;flex:1 1 55%}
+h1.px{font-size:clamp(26px,5.2vw,76px);color:var(--c);display:flex;flex-direction:column;gap:6px}
+.glitch{position:relative;display:block;text-shadow:5px 5px 0 var(--m)}
+.glitch::before,.glitch::after{content:attr(data-text);position:absolute;inset:0;text-shadow:none}
+.glitch::before{color:var(--m);clip-path:inset(0 0 55% 0);animation:gl 3.2s steps(1) infinite}
+.glitch::after{color:var(--g);clip-path:inset(55% 0 0 0);animation:gl 3.2s steps(1) infinite reverse}
+@keyframes gl{0%,90%,100%{transform:none}92%{transform:translate(5px,-2px)}95%{transform:translate(-5px,2px)}}
+.lead{font-size:clamp(24px,2.2vw,34px)}
+.cart{flex:1 1 35%;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:420px}
+.cart span{aspect-ratio:1;display:grid;place-items:center;font-family:var(--px);font-size:clamp(22px,3vw,40px);border:4px solid var(--c);background:var(--panel);box-shadow:6px 6px 0 var(--m);animation:fl 4s ease-in-out infinite}
+.cart span:nth-child(2n){border-color:var(--m);box-shadow:6px 6px 0 var(--c);animation-delay:-1.3s}
+.cart span:nth-child(3n){border-color:var(--g);animation-delay:-2.6s}
+@keyframes fl{50%{transform:translateY(-12px)}}
+
+/* meters */
+.lang{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px}
+.meter{width:146px;height:14px;flex:none;background:repeating-linear-gradient(90deg,#1c1c33 0 26px,transparent 26px 30px)}
+.meter i{display:block;height:100%;width:calc(var(--n)*30px - 4px);background:repeating-linear-gradient(90deg,var(--g) 0 26px,transparent 26px 30px)}
+
+@media (max-width:900px){nav a span{display:none}nav a b{margin:0}.hero{flex-direction:column;align-items:flex-start;justify-content:center}.cart{display:none}.hint .k{display:none}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.track{scroll-behavior:auto}}
+</style>
 </head>
-
 <body>
-
-  <!-- =========================================================
-       NAVIGATION
-       ========================================================= -->
-  <nav class="nav">
-    <div class="container nav-inner">
-      <a href="#home" class="brand">Erfan<span>.</span>AI</a>
-
-      <ul class="nav-links">
-        <li><a href="#about" data-i18n="navAbout">About</a></li>
-        <li><a href="#projects" data-i18n="navProjects">Projects</a></li>
-        <li><a href="#case-studies" data-i18n="navCases">Case Studies</a></li>
-        <li><a href="#experience" data-i18n="navExperience">Experience</a></li>
-        <li><a href="#contact" data-i18n="navContact">Contact</a></li>
-      </ul>
-
-      <div class="nav-actions">
-        <button class="icon-btn" id="languageBtn" aria-label="Change language">فا</button>
-        <button class="icon-btn" id="themeBtn" aria-label="Change theme">☀</button>
-        <button class="icon-btn mobile-menu" id="menuBtn" aria-label="Open navigation">☰</button>
-      </div>
-    </div>
-  </nav>
-
-  <main>
-
-    <!-- =========================================================
-         HERO
-         Profile image location:
-         assets/profile.jpg
-         ========================================================= -->
-    <div class="container">
-      <section class="hero" id="home">
-        <div class="hero-text reveal">
-          <div class="eyebrow">
-            <span class="status-dot"></span>
-            <span data-i18n="heroEyebrow">Open to AI & NLP opportunities</span>
-          </div>
-
-          <h1>
-            <span data-i18n="heroHello">Hi, I'm</span><br>
-            <span class="gradient-text">Erfan Jafarzadeh</span>
-          </h1>
-
-          <p class="hero-role" data-i18n="heroRole">
-            Computational Linguist · NLP Engineer · AI Developer
-          </p>
-
-          <p class="hero-copy" data-i18n="heroCopy">
-            I build language-aware AI systems, machine learning applications,
-            and research tools at the intersection of linguistics, computation,
-            and human communication.
-          </p>
-
-          <div class="hero-actions">
-            <a href="#projects" class="btn btn-primary" data-i18n="viewProjects">
-              View Projects ↓
-            </a>
-            <a href="https://github.com/Erfanjafarzade" target="_blank" class="btn btn-secondary">
-              GitHub ↗
-            </a>
-            <a href="https://ir.linkedin.com/in/erfan-jafarzadeh-7a2513332" target="_blank" class="btn btn-secondary">
-              LinkedIn ↗
-            </a>
-          </div>
-
-          <div class="hero-mini-stats">
-            <div class="mini-stat">
-              <strong>Python</strong>
-              <span data-i18n="stat1">Primary language</span>
-            </div>
-            <div class="mini-stat">
-              <strong>NLP + ML</strong>
-              <span data-i18n="stat2">Technical focus</span>
-            </div>
-            <div class="mini-stat">
-              <strong>4+</strong>
-              <span data-i18n="stat3">Working languages</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="hero-visual reveal">
-          <div class="orb one"></div>
-          <div class="orb two"></div>
-
-          <div class="floating-card top">
-            <strong>AI + LANGUAGE</strong>
-            <span data-i18n="floating1">Building at the intersection</span>
-          </div>
-
-          <div class="photo-card">
-            <img src="assets/profile.jpg" alt="Portrait of Erfan Jafarzadeh">
-          </div>
-
-          <div class="floating-card bottom">
-            <strong>PYTHON / NLP</strong>
-            <span data-i18n="floating2">Research × Engineering</span>
-          </div>
-        </div>
-      </section>
-    </div>
-
-    <!-- =========================================================
-         ABOUT
-         ========================================================= -->
-    <section id="about">
-      <div class="container">
-        <div class="section-head reveal">
-          <div class="section-kicker">01 / ABOUT</div>
-          <h2 class="section-title" data-i18n="aboutTitle">A linguistics background with an engineering direction.</h2>
-          <p class="section-description" data-i18n="aboutDesc">
-            My work combines computational linguistics, machine learning, NLP,
-            language evolution research, and practical software development.
-          </p>
-        </div>
-
-        <div class="about-grid">
-          <article class="about-card glass-card reveal">
-            <h3 data-i18n="aboutCardTitle">Why this combination?</h3>
-            <p data-i18n="aboutCardText">
-              Linguistics gives me a structured understanding of language and
-              communication. Programming and machine learning let me turn that
-              understanding into experiments, models, tools, and applications.
-            </p>
-          </article>
-
-          <article class="about-card glass-card reveal">
-            <h3 data-i18n="stackTitle">Current technical stack</h3>
-
-            <div class="stack-grid">
-              <div class="stack-item"><span>ML</span><strong>PyTorch</strong></div>
-              <div class="stack-item"><span>NLP</span><strong>spaCy · NLTK</strong></div>
-              <div class="stack-item"><span>DATA</span><strong>scikit-learn</strong></div>
-              <div class="stack-item"><span>VISION</span><strong>OpenCV · MediaPipe</strong></div>
-              <div class="stack-item"><span>LANGUAGE</span><strong>Python</strong></div>
-              <div class="stack-item"><span>AI</span><strong>LLMs · RAG</strong></div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- =========================================================
-         PROJECTS
-         TO ADD A PROJECT IMAGE:
-         1. Put image in assets/
-         2. Replace placeholder div with:
-            <img src="assets/project-name.jpg" alt="Project name screenshot">
-         ========================================================= -->
-    <section id="projects">
-      <div class="container">
-        <div class="section-head reveal">
-          <div class="section-kicker">02 / PROJECTS</div>
-          <h2 class="section-title" data-i18n="projectsTitle">Selected AI, NLP and research projects.</h2>
-          <p class="section-description" data-i18n="projectsDesc">
-            Each project links to a dedicated case study where you can document
-            the problem, methodology, technical decisions, results and visuals.
-          </p>
-        </div>
-
-        <div class="project-grid">
-
-          <!-- PROJECT 1 -->
-          <article class="project-card glass-card reveal">
-            <div class="project-image">
-              <!-- Replace this placeholder with an <img> later -->
-              <div class="placeholder-content">
-                <span class="placeholder-icon">🧠</span>
-                <strong>Project screenshot / visualization</strong><br>
-                <small>Add image later: assets/persian-ai.jpg</small>
-              </div>
-            </div>
-
-            <div class="project-content">
-              <div class="project-topline">AI / NLP / IN PROGRESS</div>
-              <h3>Persian Personality Assessment AI</h3>
-              <p>
-                A machine-learning-oriented project for exploring automated
-                scoring and analysis of Persian personality assessment data.
-              </p>
-
-              <div class="tags">
-                <span class="tech-tag">Python</span>
-                <span class="tech-tag">PyTorch</span>
-                <span class="tech-tag">NLP</span>
-                <span class="tech-tag">scikit-learn</span>
-              </div>
-
-              <div class="project-links">
-                <a href="#case-persian-ai" class="text-link">Read case study →</a>
-                <a href="#" class="text-link">GitHub →</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- PROJECT 2 -->
-          <article class="project-card glass-card reveal">
-            <div class="project-image">
-              <div class="placeholder-content">
-                <span class="placeholder-icon">🔬</span>
-                <strong>Simulation visualization</strong><br>
-                <small>Add image later: assets/language-evolution.jpg</small>
-              </div>
-            </div>
-
-            <div class="project-content">
-              <div class="project-topline">RESEARCH / SIMULATION</div>
-              <h3>Language Evolution Simulation</h3>
-              <p>
-                Computational experiments exploring iterated learning,
-                cultural transmission, and the emergence of linguistic structure.
-              </p>
-
-              <div class="tags">
-                <span class="tech-tag">Python</span>
-                <span class="tech-tag">Bayesian Models</span>
-                <span class="tech-tag">Simulation</span>
-              </div>
-
-              <div class="project-links">
-                <a href="#case-language-evolution" class="text-link">Read case study →</a>
-                <a href="#" class="text-link">Research notes →</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- PROJECT 3 -->
-          <article class="project-card glass-card reveal">
-            <div class="project-image">
-              <div class="placeholder-content">
-                <span class="placeholder-icon">🤖</span>
-                <strong>Application screenshot</strong><br>
-                <small>Add image later: assets/rag-agent.jpg</small>
-              </div>
-            </div>
-
-            <div class="project-content">
-              <div class="project-topline">LLM / RAG / IN PROGRESS</div>
-              <h3>Local AI Research Assistant</h3>
-              <p>
-                A local research environment designed to connect books, papers,
-                retrieval pipelines and language-model-based assistance.
-              </p>
-
-              <div class="tags">
-                <span class="tech-tag">Ollama</span>
-                <span class="tech-tag">RAG</span>
-                <span class="tech-tag">LLMs</span>
-                <span class="tech-tag">Python</span>
-              </div>
-
-              <div class="project-links">
-                <a href="#case-rag" class="text-link">Read case study →</a>
-                <a href="#" class="text-link">GitHub →</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- PROJECT 4 TEMPLATE -->
-          <article class="project-card glass-card reveal">
-            <div class="project-image">
-              <div class="placeholder-content">
-                <span class="placeholder-icon">＋</span>
-                <strong>Your next project</strong><br>
-                <small>Duplicate this card and edit it.</small>
-              </div>
-            </div>
-
-            <div class="project-content">
-              <div class="project-topline">NEW PROJECT</div>
-              <h3>Project Title</h3>
-              <p>
-                Write a short explanation of the problem, what you built,
-                and why it matters.
-              </p>
-
-              <div class="tags">
-                <span class="tech-tag">Technology</span>
-                <span class="tech-tag">Technology</span>
-              </div>
-
-              <div class="project-links">
-                <a href="#your-case-study" class="text-link">Read case study →</a>
-                <a href="#" class="text-link">GitHub →</a>
-              </div>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- =========================================================
-         CASE STUDIES
-         This is intentionally structured for easy editing.
-         For each project:
-         - Problem
-         - Role
-         - Stack
-         - Process
-         - Technical decisions
-         - Results
-         - Image gallery
-         ========================================================= -->
-    <section id="case-studies">
-      <div class="container">
-        <div class="section-head reveal">
-          <div class="section-kicker">03 / CASE STUDIES</div>
-          <h2 class="section-title">How I approach problems.</h2>
-          <p class="section-description">
-            Detailed project documentation. Keep these sections practical:
-            explain what the problem was, what you did, and what changed.
-          </p>
-        </div>
-
-        <div class="case-study-list">
-
-          <!-- CASE STUDY 1 -->
-          <article class="case-study glass-card reveal" id="case-persian-ai">
-            <div class="case-study-header">
-              <div>
-                <div class="section-kicker">CASE STUDY / 01</div>
-                <h3>Persian Personality Assessment AI</h3>
-              </div>
-              <div class="case-study-number">01 / ACTIVE</div>
-            </div>
-
-            <p class="case-study-summary">
-              Replace this paragraph with the short overview of the project.
-              Explain the dataset, the research or product problem, and the
-              practical purpose of the system.
-            </p>
-
-            <div class="case-study-grid">
-              <div class="case-meta"><span>Role</span><strong>Researcher / Developer</strong></div>
-              <div class="case-meta"><span>Focus</span><strong>Persian NLP</strong></div>
-              <div class="case-meta"><span>Stack</span><strong>Python · PyTorch</strong></div>
-              <div class="case-meta"><span>Status</span><strong>In Progress</strong></div>
-            </div>
-
-            <div class="case-study-content">
-              <div class="case-block">
-                <h4>01. Problem</h4>
-                <p>
-                  Describe the specific problem you are solving. Avoid generic
-                  statements and explain what makes the problem technically or
-                  practically difficult.
-                </p>
-              </div>
-
-              <div class="case-block">
-                <h4>02. Approach</h4>
-                <p>
-                  Describe the pipeline: data preparation, feature extraction,
-                  model selection, training, evaluation and iteration.
-                </p>
-              </div>
-
-              <div class="case-block">
-                <h4>03. Technical Decisions</h4>
-                <ul>
-                  <li>Why this dataset?</li>
-                  <li>Why this model architecture?</li>
-                  <li>How is Persian text processed?</li>
-                  <li>What evaluation metrics are used?</li>
-                </ul>
-              </div>
-
-              <div class="case-block">
-                <h4>04. Results / Next Steps</h4>
-                <p>
-                  Add measurable results here when available. If the project is
-                  still in progress, explain the next engineering milestone.
-                </p>
-              </div>
-            </div>
-
-            <div class="case-gallery">
-              <div class="gallery-slot">Dataset / pipeline screenshot</div>
-              <div class="gallery-slot">Model architecture / chart</div>
-              <div class="gallery-slot">Application screenshot</div>
-            </div>
-          </article>
-
-          <!-- CASE STUDY 2 -->
-          <article class="case-study glass-card reveal" id="case-language-evolution">
-            <div class="case-study-header">
-              <div>
-                <div class="section-kicker">CASE STUDY / 02</div>
-                <h3>Language Evolution Simulation</h3>
-              </div>
-              <div class="case-study-number">02 / RESEARCH</div>
-            </div>
-
-            <p class="case-study-summary">
-              Use this section to explain the research question, theoretical
-              assumptions and computational implementation.
-            </p>
-
-            <div class="case-study-grid">
-              <div class="case-meta"><span>Role</span><strong>Researcher</strong></div>
-              <div class="case-meta"><span>Focus</span><strong>Iterated Learning</strong></div>
-              <div class="case-meta"><span>Stack</span><strong>Python</strong></div>
-              <div class="case-meta"><span>Status</span><strong>Research</strong></div>
-            </div>
-
-            <div class="case-study-content">
-              <div class="case-block">
-                <h4>01. Research Question</h4>
-                <p>State the exact question the simulation is designed to investigate.</p>
-              </div>
-
-              <div class="case-block">
-                <h4>02. Model Design</h4>
-                <p>Explain agents, input, transmission, learning and output.</p>
-              </div>
-
-              <div class="case-block">
-                <h4>03. Experiment</h4>
-                <p>Describe variables, conditions, repetitions and evaluation.</p>
-              </div>
-
-              <div class="case-block">
-                <h4>04. Findings</h4>
-                <p>Add visualizations, observations and limitations here.</p>
-              </div>
-            </div>
-
-            <div class="case-gallery">
-              <div class="gallery-slot">Agent architecture</div>
-              <div class="gallery-slot">Simulation output</div>
-              <div class="gallery-slot">Research chart</div>
-            </div>
-          </article>
-
-          <!-- CASE STUDY 3 -->
-          <article class="case-study glass-card reveal" id="case-rag">
-            <div class="case-study-header">
-              <div>
-                <div class="section-kicker">CASE STUDY / 03</div>
-                <h3>Local AI Research Assistant</h3>
-              </div>
-              <div class="case-study-number">03 / BUILDING</div>
-            </div>
-
-            <p class="case-study-summary">
-              Document the architecture of the local RAG environment, including
-              document ingestion, chunking, retrieval, models and interface.
-            </p>
-
-            <div class="case-study-grid">
-              <div class="case-meta"><span>Role</span><strong>Developer</strong></div>
-              <div class="case-meta"><span>Focus</span><strong>Research AI</strong></div>
-              <div class="case-meta"><span>Stack</span><strong>Ollama · Python</strong></div>
-              <div class="case-meta"><span>Status</span><strong>In Progress</strong></div>
-            </div>
-
-            <div class="case-study-content">
-              <div class="case-block">
-                <h4>01. Problem</h4>
-                <p>Explain why ordinary chat interfaces are insufficient for your research workflow.</p>
-              </div>
-
-              <div class="case-block">
-                <h4>02. Architecture</h4>
-                <p>Explain ingestion, embeddings, vector storage, retrieval and generation.</p>
-              </div>
-
-              <div class="case-block">
-                <h4>03. Challenges</h4>
-                <p>Document local hardware limits, context quality, hallucination and retrieval issues.</p>
-              </div>
-
-              <div class="case-block">
-                <h4>04. Outcome</h4>
-                <p>Add benchmarks, screenshots and future improvements.</p>
-              </div>
-            </div>
-
-            <div class="case-gallery">
-              <div class="gallery-slot">System architecture</div>
-              <div class="gallery-slot">Interface screenshot</div>
-              <div class="gallery-slot">RAG pipeline</div>
-            </div>
-          </article>
-
-          <!-- COPY THIS BLOCK FOR A NEW CASE STUDY -->
-          <!--
-          <article class="case-study glass-card reveal" id="your-case-study">
-            ... duplicate an existing case-study and edit ...
-          </article>
-          -->
-
-        </div>
-      </div>
-    </section>
-
-    <!-- =========================================================
-         EXPERIENCE
-         ========================================================= -->
-    <section id="experience">
-      <div class="container">
-        <div class="section-head reveal">
-          <div class="section-kicker">04 / EXPERIENCE</div>
-          <h2 class="section-title">Research, language and technology.</h2>
-        </div>
-
-        <div class="experience-list">
-          <article class="experience-item glass-card reveal">
-            <div class="experience-date">2025 — 2026</div>
-            <div class="experience-body">
-              <h3>Grade 5 Homeroom & English Teacher</h3>
-              <div class="company">Nikoo International School · Tehran</div>
-              <p>
-                PYP curriculum delivery and English instruction in a bilingual
-                educational environment.
-              </p>
-            </div>
-          </article>
-
-          <article class="experience-item glass-card reveal">
-            <div class="experience-date">2022 — 2025</div>
-            <div class="experience-body">
-              <h3>UX Researcher & Web Developer</h3>
-              <div class="company">HiPersia & RasamPlus · Tehran / Karaj</div>
-              <p>
-                Worked with design, user testing and web development while
-                developing an interest in cognition, interaction and AI systems.
-              </p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- =========================================================
-         SKILLS
-         ========================================================= -->
-    <section id="skills">
-      <div class="container">
-        <div class="section-head reveal">
-          <div class="section-kicker">05 / SKILLS</div>
-          <h2 class="section-title">Tools I use to build and investigate.</h2>
-        </div>
-
-        <div class="skills-grid">
-          <article class="skill-card glass-card reveal">
-            <h3>Machine Learning</h3>
-            <ul class="skill-list">
-              <li>Python</li>
-              <li>PyTorch</li>
-              <li>scikit-learn</li>
-              <li>NumPy · Pandas</li>
-              <li>Statistical analysis</li>
-              <li>Model experimentation</li>
-            </ul>
-          </article>
-
-          <article class="skill-card glass-card reveal">
-            <h3>NLP & Linguistics</h3>
-            <ul class="skill-list">
-              <li>spaCy · NLTK</li>
-              <li>Corpus analysis</li>
-              <li>Computational linguistics</li>
-              <li>Language evolution</li>
-              <li>Syntax & semantics</li>
-              <li>Multilingual language analysis</li>
-            </ul>
-          </article>
-
-          <article class="skill-card glass-card reveal">
-            <h3>Software & AI Systems</h3>
-            <ul class="skill-list">
-              <li>OpenCV · MediaPipe</li>
-              <li>LLMs & local AI</li>
-              <li>RAG systems</li>
-              <li>Git & GitHub</li>
-              <li>Linux</li>
-              <li>HTML · CSS · JavaScript</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- =========================================================
-         CONTACT
-         ========================================================= -->
-    <section id="contact">
-      <div class="container">
-        <div class="contact-box glass-card reveal">
-          <div class="section-kicker">06 / CONTACT</div>
-          <h2>Let's build something useful.</h2>
-          <p>
-            I am interested in AI, NLP, machine learning, research engineering
-            and computational linguistics opportunities.
-          </p>
-
-          <div class="hero-actions">
-            <a href="mailto:erfanjafarzdh@gmail.com" class="btn btn-primary">
-              Email me →
-            </a>
-            <a href="https://github.com/Erfanjafarzade" target="_blank" class="btn btn-secondary">
-              GitHub ↗
-            </a>
-            <a href="https://ir.linkedin.com/in/erfan-jafarzadeh-7a2513332" target="_blank" class="btn btn-secondary">
-              LinkedIn ↗
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer>
-    <div class="container footer-inner">
-      <span>© <span id="year"></span> Erfan Jafarzadeh</span>
-      <span>AI · NLP · Computational Linguistics</span>
-    </div>
-  </footer>
-
-  <script>
-    /* =========================================================
-       THEME
-       ========================================================= */
-    const root = document.documentElement;
-    const themeBtn = document.getElementById("themeBtn");
-
-    themeBtn.addEventListener("click", () => {
-      const nextTheme =
-        root.getAttribute("data-theme") === "dark" ? "light" : "dark";
-
-      root.setAttribute("data-theme", nextTheme);
-      themeBtn.textContent = nextTheme === "dark" ? "☀" : "☾";
-    });
-
-    /* =========================================================
-       LANGUAGE
-       Add more translations here when you add new sections.
-       ========================================================= */
-    const translations = {
-      en: {
-        navAbout: "About",
-        navProjects: "Projects",
-        navCases: "Case Studies",
-        navExperience: "Experience",
-        navContact: "Contact",
-        heroEyebrow: "Open to AI & NLP opportunities",
-        heroHello: "Hi, I'm",
-        heroRole: "Computational Linguist · NLP Engineer · AI Developer",
-        heroCopy: "I build language-aware AI systems, machine learning applications, and research tools at the intersection of linguistics, computation, and human communication.",
-        viewProjects: "View Projects ↓",
-        stat1: "Primary language",
-        stat2: "Technical focus",
-        stat3: "Working languages",
-        floating1: "Building at the intersection",
-        floating2: "Research × Engineering",
-        aboutTitle: "A linguistics background with an engineering direction.",
-        aboutDesc: "My work combines computational linguistics, machine learning, NLP, language evolution research, and practical software development.",
-        aboutCardTitle: "Why this combination?",
-        aboutCardText: "Linguistics gives me a structured understanding of language and communication. Programming and machine learning let me turn that understanding into experiments, models, tools, and applications.",
-        stackTitle: "Current technical stack",
-        projectsTitle: "Selected AI, NLP and research projects.",
-        projectsDesc: "Each project links to a dedicated case study where you can document the problem, methodology, technical decisions, results and visuals."
-      },
-
-      fa: {
-        navAbout: "درباره من",
-        navProjects: "پروژه‌ها",
-        navCases: "مطالعات موردی",
-        navExperience: "تجربه",
-        navContact: "ارتباط",
-        heroEyebrow: "آماده همکاری در حوزه هوش مصنوعی و پردازش زبان",
-        heroHello: "سلام، من",
-        heroRole: "زبان‌شناس محاسباتی · مهندس NLP · توسعه‌دهنده هوش مصنوعی",
-        heroCopy: "من سیستم‌های هوش مصنوعی زبان‌محور، کاربردهای یادگیری ماشین و ابزارهای پژوهشی را در تقاطع زبان‌شناسی، محاسبات و ارتباطات انسانی توسعه می‌دهم.",
-        viewProjects: "مشاهده پروژه‌ها ↓",
-        stat1: "زبان اصلی برنامه‌نویسی",
-        stat2: "تمرکز تخصصی",
-        stat3: "زبان‌های کاری",
-        floating1: "در تقاطع زبان و هوش مصنوعی",
-        floating2: "پژوهش × مهندسی",
-        aboutTitle: "پیش‌زمینه زبان‌شناسی با مسیر مهندسی و هوش مصنوعی.",
-        aboutDesc: "فعالیت من ترکیبی از زبان‌شناسی محاسباتی، یادگیری ماشین، پردازش زبان طبیعی، پژوهش تکامل زبان و توسعه نرم‌افزار است.",
-        aboutCardTitle: "چرا این ترکیب؟",
-        aboutCardText: "زبان‌شناسی به من درک ساختاری از زبان و ارتباطات می‌دهد و برنامه‌نویسی و یادگیری ماشین به من امکان می‌دهد این دانش را به آزمایش، مدل، ابزار و کاربردهای عملی تبدیل کنم.",
-        stackTitle: "فناوری‌های فعلی",
-        projectsTitle: "منتخب پروژه‌های هوش مصنوعی، NLP و پژوهشی.",
-        projectsDesc: "هر پروژه به یک مطالعه موردی اختصاصی متصل می‌شود تا بتوانید مسئله، روش، تصمیم‌های فنی، نتایج و تصاویر را مستند کنید."
-      }
-    };
-
-    let currentLanguage = "en";
-    const languageBtn = document.getElementById("languageBtn");
-
-    function setLanguage(language) {
-      currentLanguage = language;
-      document.documentElement.lang = language;
-      document.body.classList.toggle("fa-mode", language === "fa");
-      document.documentElement.dir = language === "fa" ? "rtl" : "ltr";
-
-      document.querySelectorAll("[data-i18n]").forEach(element => {
-        const key = element.dataset.i18n;
-        if (translations[language][key]) {
-          element.textContent = translations[language][key];
-        }
-      });
-
-      languageBtn.textContent = language === "en" ? "فا" : "EN";
-    }
-
-    languageBtn.addEventListener("click", () => {
-      setLanguage(currentLanguage === "en" ? "fa" : "en");
-    });
-
-    /* =========================================================
-       SCROLL REVEAL
-       ========================================================= */
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("show");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.12 }
-    );
-
-    document.querySelectorAll(".reveal").forEach(element => observer.observe(element));
-
-    /* =========================================================
-       MOBILE MENU
-       Simple version: jump to projects.
-       Replace with a full drawer later if needed.
-       ========================================================= */
-    document.getElementById("menuBtn").addEventListener("click", () => {
-      document.getElementById("projects").scrollIntoView({ behavior: "smooth" });
-    });
-
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
-
+<div class="grid" id="grid" aria-hidden="true"></div>
+
+<header class="hud">
+<a class="logo" href="#start" aria-label="Home">EJ_</a>
+<nav aria-label="Sections">
+<a href="#start"><b>00</b><span>HOME</span></a>
+<a href="#about"><b>01</b><span>ABOUT</span></a>
+<a href="#research"><b>02</b><span>RESEARCH</span></a>
+<a href="#education"><b>03</b><span>EDUCATION</span></a>
+<a href="#skills"><b>04</b><span>SKILLS</span></a>
+<a href="#quests"><b>05</b><span>QUESTS</span></a>
+<a href="#contact"><b>06</b><span>CONTACT</span></a>
+</nav>
+<div class="bar" aria-hidden="true"><i id="fill"></i></div>
+</header>
+<div class="hint" aria-hidden="true"><span class="k">&#9664; SCROLL / SWIPE / ARROW KEYS &#9654;</span><span id="lvl">01/07</span></div>
+
+<main class="track" id="track" tabindex="0" aria-label="Portfolio. Scrolls horizontally.">
+
+<section class="lvl hero" id="start" aria-labelledby="name">
+<div>
+<span class="tag">PLAYER 01 // LINGUISTICS RESEARCHER</span>
+<h1 class="px" id="name"><span class="glitch" data-text="ERFAN">ERFAN</span><span class="glitch" data-text="JAFARZADEH">JAFARZADEH</span></h1>
+<p class="lead">Linguistics student at IKIU. I study how language works, changes and gets processed, and I build things with code to understand it.</p>
+<p class="mu">Karaj, Iran &middot; computational linguistics &middot; language evolution &middot; psycholinguistics</p>
+<div style="display:flex;flex-wrap:wrap;gap:20px"><a class="btn" href="#about">PRESS START <span class="blink">&#9654;</span></a><a class="btn m" href="#contact">CONTACT</a></div>
+</div>
+<div class="cart" aria-hidden="true"><span>A</span><span>&#12354;</span><span>&#1575;</span><span>&#601;</span><span>&lambda;</span><span>&forall;</span></div>
+</section>
+
+<section class="lvl" id="about" aria-labelledby="h-about">
+<h2 class="px" id="h-about"><span>01</span>ABOUT</h2>
+<div class="cols">
+<div class="box"><span class="tag c">PLAYER PROFILE</span><h3>HUMBLE BIO</h3><p>I came to linguistics through translation, then got pulled toward the computational side: how structure, meaning and change in language can be modelled. I am a student first. I learn by building, and I like questions more than answers.</p></div>
+<div class="box alt"><span class="tag m">PERSONALITY</span><h3>TRAITS</h3><p><span class="chip">curious</span><span class="chip">builder</span><span class="chip">self-taught</span><span class="chip">fiction writer</span><span class="chip">linux tinkerer</span><span class="chip">game dev</span></p></div>
+<div class="box"><span class="tag">STATS</span><div style="display:flex;gap:24px;flex-wrap:wrap;margin-top:14px"><div><div class="stat">4</div><div class="mu">languages</div></div><div><div class="stat">1yr</div><div class="mu">early BSc finish</div></div><div><div class="stat">C</div><div class="mu">self-taught</div></div></div></div>
+</div>
+</section>
+
+<section class="lvl" id="research" aria-labelledby="h-res">
+<h2 class="px" id="h-res"><span>02</span>RESEARCH</h2>
+<p class="lead">Interests: <span class="chip">computational linguistics</span><span class="chip">language evolution</span><span class="chip">iterated learning</span><span class="chip">psycholinguistics</span></p>
+<div class="cols">
+<div class="box"><span class="tag">SLOT 01</span><h3>PROJECT TITLE</h3><p class="mu">One-line summary. Status: WIP / DRAFT / PUBLISHED. Link.</p></div>
+<div class="box"><span class="tag">SLOT 02</span><h3>PROJECT TITLE</h3><p class="mu">One-line summary. Status: WIP / DRAFT / PUBLISHED. Link.</p></div>
+<div class="box alt" style="border-style:dashed"><span class="tag m">LOCKED</span><h3 style="color:var(--mu)">COMING SOON</h3><p class="mu">Papers, notes and experiments will unlock here.</p></div>
+</div>
+</section>
+
+<section class="lvl" id="education" aria-labelledby="h-edu">
+<h2 class="px" id="h-edu"><span>03</span>EDUCATION</h2>
+<div class="cols">
+<div class="box"><span class="tag">NOW <span class="blink">&#9608;</span></span><h3>LINGUISTICS</h3><p>Imam Khomeini International University (IKIU). Just started.</p></div>
+<div class="box alt"><span class="tag m">COMPLETED</span><h3>BSc ENGLISH TRANSLATION STUDIES &amp; LINGUISTICS</h3><p>Islamic Azad University, Karaj. Finished one year ahead of schedule.</p></div>
+<div class="box"><span class="tag c">ALSO</span><h3>EXPERIENCE</h3><p>UX research, HiPersia Agency.<br>University English and PYP teaching.<br>TOEFL 110/120.</p></div>
+</div>
+</section>
+
+<section class="lvl" id="skills" aria-labelledby="h-sk">
+<h2 class="px" id="h-sk"><span>04</span>SKILLS</h2>
+<div class="cols">
+<div class="box"><h3>CODE</h3><span class="chip">Python</span><span class="chip">PyTorch</span><span class="chip">spaCy</span><span class="chip">NLTK</span><span class="chip">scikit-learn</span><span class="chip">C</span></div>
+<div class="box alt"><h3>VISION + WEB</h3><span class="chip">MediaPipe</span><span class="chip">OpenCV</span><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span></div>
+<div class="box"><h3>THINKING + PEOPLE</h3><span class="chip">formal logic</span><span class="chip">discrete math</span><span class="chip">UX research</span><span class="chip">teaching</span></div>
+<div class="box alt"><h3>LANGUAGES</h3>
+<div class="lang"><span>Persian</span><span class="meter" style="--n:5" role="img" aria-label="Native"><i></i></span></div>
+<div class="lang"><span>Azeri</span><span class="meter" style="--n:5" role="img" aria-label="Native"><i></i></span></div>
+<div class="lang"><span>English</span><span class="meter" style="--n:4" role="img" aria-label="Near-native"><i></i></span></div>
+<div class="lang"><span>Japanese</span><span class="meter" style="--n:2" role="img" aria-label="Intermediate"><i></i></span></div></div>
+</div>
+</section>
+
+<section class="lvl" id="quests" aria-labelledby="h-q">
+<h2 class="px" id="h-q"><span>05</span>SIDE QUESTS</h2>
+<div class="cols">
+<div class="box"><span class="tag c">NLP</span><h3>PERSIAN MEDICAL RAG</h3><p>Retrieval of medical information in Persian.</p><p class="mu">[ link soon ]</p></div>
+<div class="box alt"><span class="tag m">GAME DEV</span><h3>ISLA AMOURE</h3><p>An MMO RPG I am building with a friend.</p><p class="mu">[ link soon ]</p></div>
+<div class="box"><span class="tag">BUSINESS</span><h3>MAFAN</h3><p>Helping students apply to computer science programs.</p><p class="mu">[ link soon ]</p></div>
+<div class="box alt"><span class="tag c">LINUX</span><h3>HYPRLAND SETUP</h3><p>Fedora + Hyprland, customised by hand.</p><p class="mu">[ link soon ]</p></div>
+</div>
+<p class="mu">This site: hand-written HTML, CSS and JS. No framework, no build step.</p>
+</section>
+
+<section class="lvl" id="contact" aria-labelledby="h-c">
+<h2 class="px" id="h-c"><span>06</span>CONTACT</h2>
+<p class="px" style="font-size:clamp(20px,3.4vw,48px);color:var(--c);text-shadow:4px 4px 0 var(--m)">CONTINUE?</p>
+<div class="box" style="display:flex;flex-wrap:wrap;gap:18px 36px">
+<!-- TODO: replace with your real email and CV link -->
+<a href="mailto:your@email.com">your@email.com</a>
+<a href="https://github.com/erfanjafarzade" rel="me">github.com/erfanjafarzade</a>
+<a href="#contact">CV (PDF)</a>
+</div>
+<p class="mu">&copy; Erfan Jafarzadeh &middot; Karaj, Iran</p>
+</section>
+
+</main>
+
+<script>
+(()=>{
+const t=document.getElementById('track'),f=document.getElementById('fill'),g=document.getElementById('grid'),c=document.getElementById('lvl'),
+n=[...document.querySelectorAll('nav a')],N=t.children.length;let r;
+const upd=()=>{const w=t.clientWidth,m=t.scrollWidth-w,i=Math.min(N-1,Math.round(t.scrollLeft/w));
+f.style.width=(m>0?t.scrollLeft/m*100:0)+'%';g.style.setProperty('--p',t.scrollLeft);
+n.forEach((a,j)=>j===i?a.setAttribute('aria-current','true'):a.removeAttribute('aria-current'));
+c.textContent=String(i+1).padStart(2,'0')+'/'+String(N).padStart(2,'0')};
+t.addEventListener('scroll',()=>{cancelAnimationFrame(r);r=requestAnimationFrame(upd)},{passive:true});
+t.addEventListener('wheel',e=>{if(e.ctrlKey||Math.abs(e.deltaX)>Math.abs(e.deltaY))return;
+const l=e.target.closest('.lvl');if(l&&l.scrollHeight>l.clientHeight+2)return;
+e.preventDefault();t.scrollBy({left:e.deltaY*(e.deltaMode?32:1),behavior:'instant'})},{passive:false});
+addEventListener('keydown',e=>{const w=t.clientWidth,k=e.key;
+if(k==='ArrowRight'||k==='PageDown'){e.preventDefault();t.scrollBy({left:w,behavior:'smooth'})}
+else if(k==='ArrowLeft'||k==='PageUp'){e.preventDefault();t.scrollBy({left:-w,behavior:'smooth'})}
+else if(k==='Home'){e.preventDefault();t.scrollTo({left:0,behavior:'smooth'})}
+else if(k==='End'){e.preventDefault();t.scrollTo({left:t.scrollWidth,behavior:'smooth'})}});
+addEventListener('resize',upd);upd();t.focus({preventScroll:true});
+})();
+</script>
 </body>
 </html>
