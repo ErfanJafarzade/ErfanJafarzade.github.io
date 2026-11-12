@@ -1,212 +1,299 @@
 <!doctype html>
 <html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Erfan Jafarzadeh | Linguistics Researcher</title>
-<meta name="description" content="Erfan Jafarzadeh: Post Graduate linguistics student at IKIU working on computational linguistics, language evolution and psycholinguistics. Also builds things with Python, C and the web.">
-<meta name="theme-color" content="#070710">
-<meta property="og:title" content="Erfan Jafarzadeh | Linguistics Researcher">
-<meta property="og:description" content="Computational linguistics, language evolution, psycholinguistics. Portfolio.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://erfanjafarzade.github.io/">
-<link rel="canonical" href="https://erfanjafarzade.github.io/">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Crect width='8' height='8' fill='%23070710'/%3E%3Cpath fill='%2300f0ff' d='M1 1h6v1H2v2h4v1H2v2h5v1H1z'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Erfan Jafarzadeh","url":"https://erfanjafarzade.github.io/","jobTitle":"Linguistics researcher","knowsLanguage":["fa","az","en","ja"],"sameAs":["https://github.com/erfanjafarzade"]}</script>
-<style>
-:root{--bg:#070710;--panel:#0e0e1c;--c:#00f0ff;--m:#ff2bd6;--g:#b6ff3c;--t:#e8ecff;--mu:#a4a9cc;--px:'Press Start 2P',ui-monospace,monospace;--bd:'VT323',ui-monospace,Menlo,monospace}
-*{box-sizing:border-box}
-html,body{height:100%;margin:0;background:var(--bg);color:var(--t);overflow:hidden}
-body{font-family:var(--bd);font-size:clamp(21px,1.5vw,26px);line-height:1.25;-webkit-font-smoothing:none}
-a{color:var(--c)}a:hover{color:var(--m)}
-:focus-visible{outline:3px solid var(--g);outline-offset:3px}
-h1,h2,h3,p{margin:0}
-.px{font-family:var(--px);line-height:1.5}
-.mu{color:var(--mu)}
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Erfan Jafarzadeh | Linguistics Researcher</title>
+    <meta
+      name="description"
+      content="Erfan Jafarzadeh: Post Graduate linguistics student at IKIU working on computational linguistics, language evolution and psycholinguistics. Also builds things with Python, C and the web."
+    />
+    <meta name="theme-color" content="#070710" />
+    <meta name="color-scheme" content="dark" />
+    <meta property="og:title" content="Erfan Jafarzadeh | Linguistics Researcher" />
+    <meta
+      property="og:description"
+      content="Computational linguistics, language evolution, psycholinguistics. Portfolio."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://erfanjafarzade.github.io/" />
+    <link rel="canonical" href="https://erfanjafarzade.github.io/" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Crect width='8' height='8' fill='%23070710'/%3E%3Cpath fill='%2300f0ff' d='M1 1h6v1H2v2h4v1H2v2h5v1H1z'/%3E%3C/svg%3E"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Press+Start+2P&family=VT323&display=swap"
+      rel="stylesheet"
+    />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Erfan Jafarzadeh",
+        "url": "https://erfanjafarzade.github.io/",
+        "jobTitle": "Linguistics researcher",
+        "knowsLanguage": ["fa", "az", "en", "ja"],
+        "sameAs": ["https://github.com/erfanjafarzade"]
+      }
+    </script>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="boot-screen" aria-hidden="true"><span>LOADING ERFAN.EXE</span><b></b></div>
+    <div class="backdrop" aria-hidden="true"><i class="grid-lines" id="backdrop-lines"></i></div>
 
-/* backdrop */
-.grid{position:fixed;inset:0;z-index:0;--p:0;background:
- linear-gradient(transparent 0 calc(100% - 2px),rgba(0,240,255,.10) 0) 0 0/64px 64px,
- linear-gradient(90deg,transparent 0 calc(100% - 2px),rgba(0,240,255,.10) 0) calc(var(--p)*-.35px) 0/64px 64px,
- radial-gradient(60% 50% at 20% 10%,rgba(255,43,214,.16),transparent),radial-gradient(50% 50% at 85% 90%,rgba(0,240,255,.14),transparent)}
-body::after{content:"";position:fixed;inset:0;z-index:50;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(255,255,255,.035) 0 1px,transparent 1px 3px),radial-gradient(120% 100% at 50% 50%,transparent 60%,rgba(0,0,0,.45))}
+    <header class="hud">
+      <a class="logo" href="#start" aria-label="Home">EJ_</a>
+      <nav aria-label="Sections">
+        <a href="#start"><b>00</b>HOME</a>
+        <a href="#about"><b>01</b>ABOUT</a>
+        <a href="#research"><b>02</b>RESEARCH</a>
+        <a href="#education"><b>03</b>EDUCATION</a>
+        <a href="#skills"><b>04</b>SKILLS</a>
+        <a href="#quests"><b>05</b>QUESTS</a>
+        <a href="#contact"><b>06</b>CONTACT</a>
+      </nav>
+      <div class="hud-tools">
+        <span id="level-counter" aria-hidden="true">01/07</span
+        ><button
+          class="icon-btn is-prompting"
+          id="music"
+          type="button"
+          aria-pressed="false"
+          aria-label="Background music"
+          title="Background music"
+        >
+          &#9834;</button
+        ><button
+          class="icon-btn"
+          id="theme"
+          type="button"
+          aria-label="Change color theme"
+          title="Change color theme"
+        >
+          &#9680;
+        </button>
+      </div>
+      <div class="progress" aria-hidden="true"><i id="progress-fill"></i></div>
+    </header>
+    <div class="hint" aria-hidden="true">&#9664; SCROLL / SWIPE / ARROW KEYS &#9654;</div>
+    <div class="swipe" aria-hidden="true">SWIPE &#9654;</div>
+    <nav class="dock" aria-label="Sections (mobile)">
+      <a href="#start" aria-label="Home">00</a><a href="#about" aria-label="About">01</a
+      ><a href="#research" aria-label="Research">02</a
+      ><a href="#education" aria-label="Education">03</a><a href="#skills" aria-label="Skills">04</a
+      ><a href="#quests" aria-label="Side quests">05</a
+      ><a href="#contact" aria-label="Contact">06</a>
+    </nav>
 
-/* HUD */
-.hud{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 4vw 18px;background:linear-gradient(var(--bg) 60%,transparent)}
-.logo{font-family:var(--px);font-size:16px;color:var(--c);text-decoration:none;text-shadow:3px 3px 0 var(--m)}
-nav{display:flex;gap:4px;flex-wrap:nowrap}
-nav a{font-family:var(--px);font-size:10px;color:var(--mu);text-decoration:none;padding:10px 8px;border:2px solid transparent;white-space:nowrap}
-nav a b{color:var(--m);font-weight:400;margin-right:6px}
-nav a:hover,nav a[aria-current]{color:var(--t);border-color:var(--c)}
-.bar{position:absolute;left:4vw;right:4vw;bottom:8px;height:4px;background:#1c1c33}
-.bar i{display:block;height:100%;width:0;background:var(--g);box-shadow:0 0 12px var(--g)}
-.hint{position:fixed;z-index:20;left:4vw;right:4vw;bottom:14px;display:flex;justify-content:space-between;font-family:var(--px);font-size:10px;color:var(--mu);pointer-events:none}
+    <main class="track" id="track" tabindex="0" aria-label="Portfolio. Scrolls horizontally.">
+      <!-- HOME -->
+      <section class="level hero" id="start" data-n="00" aria-labelledby="name">
+        <div>
+          <span class="tag">USER LEVEL: ADMIN // LINGUISTICS RESEARCHER</span>
+          <h1 class="pixel" id="name">
+            <span class="glitch" data-text="ERFAN">ERFAN</span
+            ><span class="glitch" data-text="JAFARZADEH">JAFARZADEH</span>
+          </h1>
+          <p class="lead">
+            Masters student in Linguistics at IKIU. I study how language evolves, where it came from
+            and where it'll go, and I build things with code to understand it.
+          </p>
+          <p class="muted">
+            Karaj, Iran &middot; computational linguistics &middot; language evolution &middot;
+            psycholinguistics
+          </p>
+          <div class="hero-actions">
+            <a class="btn" href="#about">PRESS START <span class="blink">&#9654;</span></a
+            ><a class="btn btn-magenta" href="#contact">CONTACT</a>
+          </div>
+        </div>
+        <div class="glyph-tiles" aria-hidden="true">
+          <span>A</span><span class="font-jp">&#12354;</span><span>&#1575;</span><span>&#601;</span
+          ><span>&lambda;</span><span>&forall;</span>
+        </div>
+      </section>
 
-/* track */
-.track{position:relative;z-index:1;display:flex;height:100%;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x proximity;scroll-behavior:smooth;scrollbar-width:none;outline:none}
-.track::-webkit-scrollbar{display:none}
-.lvl{flex:0 0 100vw;width:100vw;height:100%;scroll-snap-align:start;padding:96px 6vw 56px;display:flex;flex-direction:column;justify-content:center;gap:28px;overflow-y:auto;scrollbar-width:none}
-.lvl>*{max-width:1200px}
-h2.px{font-size:clamp(18px,2.3vw,32px);color:var(--g)}
-h2 span{color:var(--m);margin-right:14px}
+      <!-- 01 ABOUT -->
+      <section class="level" id="about" data-n="01" aria-labelledby="h-about">
+        <h2 class="pixel" id="h-about"><span>01</span>ABOUT</h2>
+        <div class="card-grid">
+          <div class="card">
+            <span class="tag tag-cyan">PLAYER PROFILE</span>
+            <h3>Plot Summary</h3>
+            <p>
+              I came to linguistics through translation, I've always maintained a curious mind and
+              love for understanding how the world is working, I soon found my answer in language
+              evolution. I am a student first. I learn by building, and I like questions more than
+              answers.
+            </p>
+          </div>
+          <div class="card alt">
+            <span class="tag tag-magenta">PERSONALITY</span>
+            <h3>TRAITS</h3>
+            <p>
+              <span class="chip">curious</span><span class="chip">builder</span
+              ><span class="chip">self-taught</span><span class="chip">artist</span
+              ><span class="chip">linux tinkerer(wayland all the way)</span
+              ><span class="chip">game dev</span>
+            </p>
+          </div>
+          <div class="card">
+            <span class="tag">STATS</span>
+            <div class="stats">
+              <div>
+                <div class="stat">4 fluent</div>
+                <div class="muted">languages</div>
+              </div>
+              <div>
+                <div class="stat">4.0 GPA</div>
+                <div class="muted">In Bachelors</div>
+              </div>
+              <div>
+                <div class="stat">C and Python</div>
+                <div class="muted">self-taught</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-/* parts */
-.box{background:var(--panel);border:4px solid var(--c);box-shadow:8px 8px 0 var(--m);padding:22px;transition:transform .12s,box-shadow .12s}
-.box:hover{transform:translate(-3px,-3px);box-shadow:11px 11px 0 var(--m)}
-.box.alt{border-color:var(--m);box-shadow:8px 8px 0 var(--c)}
-.box.alt:hover{box-shadow:11px 11px 0 var(--c)}
-.tag{font-family:var(--px);font-size:10px;color:var(--bg);background:var(--g);padding:6px 8px;display:inline-block}
-.tag.m{background:var(--m)}.tag.c{background:var(--c)}
-.chip{display:inline-block;border:2px solid var(--c);padding:2px 10px;margin:0 8px 8px 0;color:var(--t)}
-.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:34px}
-.box h3{font-family:var(--px);font-size:13px;color:var(--c);margin:12px 0 10px}
-.stat{font-family:var(--px);font-size:clamp(22px,3vw,40px);color:var(--g);text-shadow:3px 3px 0 var(--m)}
-.btn{font-family:var(--px);font-size:13px;text-decoration:none;padding:16px 20px;border:4px solid var(--g);color:var(--g);display:inline-block;background:var(--bg)}
-.btn:hover{background:var(--g);color:var(--bg)}
-.btn.m{border-color:var(--m);color:var(--m)}.btn.m:hover{background:var(--m);color:var(--bg)}
-.blink{animation:bl 1s steps(1) infinite}@keyframes bl{50%{opacity:0}}
+      <!-- 02 RESEARCH -->
+      <section class="level" id="research" data-n="02" aria-labelledby="h-res">
+        <h2 class="pixel" id="h-res"><span>02</span>RESEARCH (Currently a placeholder)</h2>
+        <p class="lead">
+          Interests: <span class="chip">computational linguistics</span
+          ><span class="chip">language evolution</span><span class="chip">iterated learning</span
+          ><span class="chip">psycholinguistics</span>
+        </p>
+        <div class="card-grid">
+          <div class="card">
+            <span class="tag">SLOT 01</span>
+            <h3>PROJECT TITLE</h3>
+            <p class="muted">One-line summary. Status: WIP / DRAFT / PUBLISHED. Link.</p>
+          </div>
+          <div class="card">
+            <span class="tag">SLOT 02</span>
+            <h3>PROJECT TITLE</h3>
+            <p class="muted">One-line summary. Status: WIP / DRAFT / PUBLISHED. Link.</p>
+          </div>
+          <div class="card alt card-locked">
+            <span class="tag tag-magenta">LOCKED</span>
+            <h3>COMING SOON</h3>
+            <p class="muted">Papers, notes and experiments will unlock here.</p>
+          </div>
+        </div>
+      </section>
 
-/* hero */
-.hero{flex-direction:row;align-items:center;gap:6vw;flex-wrap:nowrap}
-.hero>div:first-child{display:flex;flex-direction:column;gap:22px;flex:1 1 55%}
-h1.px{font-size:clamp(26px,5.2vw,76px);color:var(--c);display:flex;flex-direction:column;gap:6px}
-.glitch{position:relative;display:block;text-shadow:5px 5px 0 var(--m)}
-.glitch::before,.glitch::after{content:attr(data-text);position:absolute;inset:0;text-shadow:none}
-.glitch::before{color:var(--m);clip-path:inset(0 0 55% 0);animation:gl 3.2s steps(1) infinite}
-.glitch::after{color:var(--g);clip-path:inset(55% 0 0 0);animation:gl 3.2s steps(1) infinite reverse}
-@keyframes gl{0%,90%,100%{transform:none}92%{transform:translate(5px,-2px)}95%{transform:translate(-5px,2px)}}
-.lead{font-size:clamp(24px,2.2vw,34px)}
-.cart{flex:1 1 35%;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:420px}
-.cart span{aspect-ratio:1;display:grid;place-items:center;font-family:var(--px);font-size:clamp(22px,3vw,40px);border:4px solid var(--c);background:var(--panel);box-shadow:6px 6px 0 var(--m);animation:fl 4s ease-in-out infinite}
-.cart span:nth-child(2n){border-color:var(--m);box-shadow:6px 6px 0 var(--c);animation-delay:-1.3s}
-.cart span:nth-child(3n){border-color:var(--g);animation-delay:-2.6s}
-@keyframes fl{50%{transform:translateY(-12px)}}
+      <!-- 03 EDUCATION -->
+      <section class="level" id="education" data-n="03" aria-labelledby="h-edu">
+        <h2 class="pixel" id="h-edu"><span>03</span>EDUCATION</h2>
+        <div class="card-grid">
+          <div class="card">
+            <span class="tag">NOW <span class="blink">&#9608;</span></span>
+            <h3>LINGUISTICS</h3>
+            <p>Imam Khomeini International University (IKIU). Just started.</p>
+          </div>
+          <div class="card alt">
+            <span class="tag tag-magenta">COMPLETED</span>
+            <h3>BSc ENGLISH TRANSLATION STUDIES &amp; LINGUISTICS</h3>
+            <p>Islamic Azad University, Karaj. Finished one year ahead of schedule.</p>
+          </div>
+          <div class="card">
+            <span class="tag tag-cyan">ALSO</span>
+            <h3>EXPERIENCE</h3>
+            <p>
+              UX research, HiPersia Agency, for 2 years<br />University English and PYP teaching,
+              for 1 year<br />TOEFL 5.5/6.
+            </p>
+          </div>
+        </div>
+      </section>
 
-/* meters */
-.lang{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px}
-.meter{width:146px;height:14px;flex:none;background:repeating-linear-gradient(90deg,#1c1c33 0 26px,transparent 26px 30px)}
-.meter i{display:block;height:100%;width:calc(var(--n)*30px - 4px);background:repeating-linear-gradient(90deg,var(--g) 0 26px,transparent 26px 30px)}
+      <!-- 04 SKILLS -->
+      <section class="level" id="skills" data-n="04" aria-labelledby="h-sk">
+        <h2 class="pixel" id="h-sk"><span>04</span>SKILLS</h2>
+        <div class="card-grid">
+          <div class="card">
+            <h3>CODE</h3>
+            <span class="chip">Python</span><span class="chip">PyTorch</span
+            ><span class="chip">spaCy</span><span class="chip">NLTK</span
+            ><span class="chip">scikit-learn</span><span class="chip">C</span
+            ><span class="chip">R</span>
+          </div>
+          <div class="card alt">
+            <h3>TECHNICAL</h3>
+            <span class="chip">MediaPipe</span><span class="chip">OpenCV</span
+            ><span class="chip">HTML</span><span class="chip">CSS</span
+            ><span class="chip">SPSS</span><span class="chip">FIGMA</span
+            ><span class="chip">LaTeX</span>
+          </div>
+          <div class="card">
+            <h3>THINKING + PEOPLE</h3>
+            <span class="chip">formal logic</span><span class="chip">discrete math</span
+            ><span class="chip">UX research</span><span class="chip">teaching</span>
+          </div>
+          <div class="card alt">
+            <h3>LANGUAGES</h3>
+            <div class="language-row">
+              <span>Persian</span
+              ><span class="meter" style="--filled: 5" role="img" aria-label="Native"><i></i></span>
+            </div>
+            <div class="language-row">
+              <span>Azeri</span
+              ><span class="meter" style="--filled: 5" role="img" aria-label="Native"><i></i></span>
+            </div>
+            <div class="language-row">
+              <span>English</span
+              ><span class="meter" style="--filled: 5" role="img" aria-label="Near-native"
+                ><i></i
+              ></span>
+            </div>
+            <div class="language-row">
+              <span>Japanese</span
+              ><span class="meter" style="--filled: 4" role="img" aria-label="Intermediate"
+                ><i></i
+              ></span>
+            </div>
+          </div>
+        </div>
+      </section>
 
-@media (max-width:900px){nav a span{display:none}nav a b{margin:0}.hero{flex-direction:column;align-items:flex-start;justify-content:center}.cart{display:none}.hint .k{display:none}}
-@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.track{scroll-behavior:auto}}
-</style>
-</head>
-<body>
-<div class="grid" id="grid" aria-hidden="true"></div>
+      <!-- 05 SIDE QUESTS -->
+      <section class="level" id="quests" data-n="05" aria-labelledby="h-q">
+        <h2 class="pixel" id="h-q"><span>05</span>SIDE QUESTS</h2>
+        <div class="card-grid">
+          <div class="card alt">
+            <span class="tag tag-magenta">GAME DEV</span>
+            <h3 class="font-jp">美しい青</h3>
+            <p>A JRPG filled with emotions and actions</p>
+            <p class="muted">[ link soon ]</p>
+          </div>
+          <div class="card alt">
+            <span class="tag tag-cyan">LINUX</span>
+            <h3>HYPRLAND SETUP</h3>
+            <p>Fedora + Hyprland, customised by hand.</p>
+          </div>
+        </div>
+      </section>
 
-<header class="hud">
-<a class="logo" href="#start" aria-label="Home">EJ_</a>
-<nav aria-label="Sections">
-<a href="#start"><b>00</b><span>HOME</span></a>
-<a href="#about"><b>01</b><span>ABOUT</span></a>
-<a href="#research"><b>02</b><span>RESEARCH</span></a>
-<a href="#education"><b>03</b><span>EDUCATION</span></a>
-<a href="#skills"><b>04</b><span>SKILLS</span></a>
-<a href="#quests"><b>05</b><span>QUESTS</span></a>
-<a href="#contact"><b>06</b><span>CONTACT</span></a>
-</nav>
-<div class="bar" aria-hidden="true"><i id="fill"></i></div>
-</header>
-<div class="hint" aria-hidden="true"><span class="k">&#9664; SCROLL / SWIPE / ARROW KEYS &#9654;</span><span id="lvl">01/07</span></div>
+      <!-- 06 CONTACT -->
+      <section class="level" id="contact" data-n="06" aria-labelledby="h-c">
+        <h2 class="pixel" id="h-c"><span>06</span>CONTACT</h2>
+        <p class="pixel continue">CONTINUE?</p>
+        <div class="card contact-card">
+          <a href="mailto:erfanjafarzdh@gmail.com">erfanjafarzdh@gmail.com</a>
+          <a href="mailto:erfan.jafarzadeh@edu.ikiu.ac.ir">erfan.jafarzadeh@edu.ikiu.ac.ir</a>
+          <a href="https://github.com/erfanjafarzade" rel="me">github.com/erfanjafarzade</a>
+        </div>
+        <p class="muted">&copy; Erfan Jafarzadeh &middot; Karaj, Iran</p>
+      </section>
+    </main>
 
-<main class="track" id="track" tabindex="0" aria-label="Portfolio. Scrolls horizontally.">
-
-<section class="lvl hero" id="start" aria-labelledby="name">
-<div>
-<span class="tag">USER LEVEL: ADMIN // LINGUISTICS RESEARCHER</span>
-<h1 class="px" id="name"><span class="glitch" data-text="ERFAN">ERFAN</span><span class="glitch" data-text="JAFARZADEH">JAFARZADEH</span></h1>
-<p class="lead">Masters student in Linguistics at IKIU. I study how language evolves, where it came from and where it'll go, and I build things with code to understand it.</p>
-<p class="mu">Karaj, Iran &middot; computational linguistics &middot; language evolution &middot; psycholinguistics</p>
-<div style="display:flex;flex-wrap:wrap;gap:20px"><a class="btn" href="#about">PRESS START <span class="blink">&#9654;</span></a><a class="btn m" href="#contact">CONTACT</a></div>
-</div>
-<div class="cart" aria-hidden="true"><span>A</span><span>&#12354;</span><span>&#1575;</span><span>&#601;</span><span>&lambda;</span><span>&forall;</span></div>
-</section>
-
-<section class="lvl" id="about" aria-labelledby="h-about">
-<h2 class="px" id="h-about"><span>01</span>ABOUT</h2>
-<div class="cols">
-<div class="box"><span class="tag c">PLAYER PROFILE</span><h3>Plot Summary</h3><p>I came to linguistics through translation, I've always maintained a curious mind and love for understanding how the world is working, I soon found my answer in language evolution. I am a student first. I learn by building, and I like questions more than answers.</p></div>
-<div class="box alt"><span class="tag m">PERSONALITY</span><h3>TRAITS</h3><p><span class="chip">curious</span><span class="chip">builder</span><span class="chip">self-taught</span><span class="chip">artist</span><span class="chip">linux tinkerer(wayland all the way)</span><span class="chip">game dev</span></p></div>
-<div class="box"><span class="tag">STATS</span><div style="display:flex;gap:24px;flex-wrap:wrap;margin-top:14px"><div><div class="stat">4 fluent</div><div class="mu">languages</div></div><div><div class="stat">4.0 GPA</div><div class="mu">In Bachelors</div></div><div><div class="stat">C and Python</div><div class="mu">self-taught</div></div></div></div>
-</div>
-</section>
-
-<section class="lvl" id="research" aria-labelledby="h-res">
-<h2 class="px" id="h-res"><span>02</span>RESEARCH (Currently a placeholder)</h2>
-<p class="lead">Interests: <span class="chip">computational linguistics</span><span class="chip">language evolution</span><span class="chip">iterated learning</span><span class="chip">psycholinguistics</span></p>
-<div class="cols">
-<div class="box"><span class="tag">SLOT 01</span><h3>PROJECT TITLE</h3><p class="mu">One-line summary. Status: WIP / DRAFT / PUBLISHED. Link.</p></div>
-<div class="box"><span class="tag">SLOT 02</span><h3>PROJECT TITLE</h3><p class="mu">One-line summary. Status: WIP / DRAFT / PUBLISHED. Link.</p></div>
-<div class="box alt" style="border-style:dashed"><span class="tag m">LOCKED</span><h3 style="color:var(--mu)">COMING SOON</h3><p class="mu">Papers, notes and experiments will unlock here.</p></div>
-</div>
-</section>
-
-<section class="lvl" id="education" aria-labelledby="h-edu">
-<h2 class="px" id="h-edu"><span>03</span>EDUCATION</h2>
-<div class="cols">
-<div class="box"><span class="tag">NOW <span class="blink">&#9608;</span></span><h3>LINGUISTICS</h3><p>Imam Khomeini International University (IKIU). Just started.</p></div>
-<div class="box alt"><span class="tag m">COMPLETED</span><h3>BSc ENGLISH TRANSLATION STUDIES &amp; LINGUISTICS</h3><p>Islamic Azad University, Karaj. Finished one year ahead of schedule.</p></div>
-<div class="box"><span class="tag c">ALSO</span><h3>EXPERIENCE</h3><p>UX research, HiPersia Agency. for 2 years<br>University English and PYP teaching. for 1 year<br>TOEFL 5.5/6.</p></div>
-</div>
-</section>
-
-<section class="lvl" id="skills" aria-labelledby="h-sk">
-<h2 class="px" id="h-sk"><span>04</span>SKILLS</h2>
-<div class="cols">
-<div class="box"><h3>CODE</h3><span class="chip">Python</span><span class="chip">PyTorch</span><span class="chip">spaCy</span><span class="chip">NLTK</span><span class="chip">scikit-learn</span><span class="chip">C</span></div><span class="chip">R</span></div>
-<div class="box alt"><h3>TECHINICAL</h3><span class="chip">MediaPipe</span><span class="chip">OpenCV</span><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">SPSS</span></div><span class="chip">FIGMA</span></div><span class="chip">LaTeX</span></div>
-<div class="box"><h3>THINKING + PEOPLE</h3><span class="chip">formal logic</span><span class="chip">discrete math</span><span class="chip">UX research</span><span class="chip">teaching</span></div>
-<div class="box alt"><h3>LANGUAGES</h3>
-<div class="lang"><span>Persian</span><span class="meter" style="--n:5" role="img" aria-label="Native"><i></i></span></div>
-<div class="lang"><span>Azeri</span><span class="meter" style="--n:5" role="img" aria-label="Native"><i></i></span></div>
-<div class="lang"><span>English</span><span class="meter" style="--n:5" role="img" aria-label="Near-native"><i></i></span></div>
-<div class="lang"><span>Japanese</span><span class="meter" style="--n:4" role="img" aria-label="Intermediate"><i></i></span></div></div>
-</div>
-</section>
-
-<section class="lvl" id="quests" aria-labelledby="h-q">
-<h2 class="px" id="h-q"><span>05</span>SIDE QUESTS</h2>
-<div class="cols">
-<div class="box alt"><span class="tag m">GAME DEV</span><h3>美しい青</h3><p>A JRPG filled with emotions and actions</p><p class="mu">[ link soon ]</p></div>
-<div class="box alt"><span class="tag c">LINUX</span><h3>HYPRLAND SETUP</h3><p>Fedora + Hyprland, customised by hand.</p>
-</div>
-</section>
-
-<section class="lvl" id="contact" aria-labelledby="h-c">
-<h2 class="px" id="h-c"><span>06</span>CONTACT</h2>
-<p class="px" style="font-size:clamp(20px,3.4vw,48px);color:var(--c);text-shadow:4px 4px 0 var(--m)">CONTINUE?</p>
-<div class="box" style="display:flex;flex-wrap:wrap;gap:18px 36px">
-<a href="mailto:erfanjafarzdh@gmail.com">erfanjafarzdh@gmail.com</a>
-<a href="mailto:erfan.jafarzadeh@edu.ikiu.ac.ir">erfan.jafarzadeh@edu.ikiu.ac.ir</a>
-<a href="https://github.com/erfanjafarzade" rel="me">github.com/erfanjafarzade</a>
-</div>
-<p class="mu">&copy; Erfan Jafarzadeh &middot; Karaj, Iran</p>
-</section>
-
-</main>
-
-<script>
-(()=>{
-const t=document.getElementById('track'),f=document.getElementById('fill'),g=document.getElementById('grid'),c=document.getElementById('lvl'),
-n=[...document.querySelectorAll('nav a')],N=t.children.length;let r;
-const upd=()=>{const w=t.clientWidth,m=t.scrollWidth-w,i=Math.min(N-1,Math.round(t.scrollLeft/w));
-f.style.width=(m>0?t.scrollLeft/m*100:0)+'%';g.style.setProperty('--p',t.scrollLeft);
-n.forEach((a,j)=>j===i?a.setAttribute('aria-current','true'):a.removeAttribute('aria-current'));
-c.textContent=String(i+1).padStart(2,'0')+'/'+String(N).padStart(2,'0')};
-t.addEventListener('scroll',()=>{cancelAnimationFrame(r);r=requestAnimationFrame(upd)},{passive:true});
-t.addEventListener('wheel',e=>{if(e.ctrlKey||Math.abs(e.deltaX)>Math.abs(e.deltaY))return;
-const l=e.target.closest('.lvl');if(l&&l.scrollHeight>l.clientHeight+2)return;
-e.preventDefault();t.scrollBy({left:e.deltaY*(e.deltaMode?32:1),behavior:'instant'})},{passive:false});
-addEventListener('keydown',e=>{const w=t.clientWidth,k=e.key;
-if(k==='ArrowRight'||k==='PageDown'){e.preventDefault();t.scrollBy({left:w,behavior:'smooth'})}
-else if(k==='ArrowLeft'||k==='PageUp'){e.preventDefault();t.scrollBy({left:-w,behavior:'smooth'})}
-else if(k==='Home'){e.preventDefault();t.scrollTo({left:0,behavior:'smooth'})}
-else if(k==='End'){e.preventDefault();t.scrollTo({left:t.scrollWidth,behavior:'smooth'})}});
-addEventListener('resize',upd);upd();t.focus({preventScroll:true});
-})();
-</script>
-</body>
+    <script src="js/music.js" defer></script>
+    <script src="js/main.js" defer></script>
+  </body>
 </html>
